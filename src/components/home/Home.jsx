@@ -7,7 +7,7 @@ import config from '../../common/config.json';
 import s from '../../../styles/main.scss'
 
 
-class Greeter extends Component {
+class Home extends Component {
     render() {
         return (
             <div>
@@ -18,4 +18,4 @@ class Greeter extends Component {
     }
 }
 
-export default Greeter
+export default Home
