@@ -7,19 +7,18 @@ import Header from './Header';
 import Footer from './Footer';
 import style from './../../../styles/main.scss'
 
-class DefaultLayout extends Component {
+export default class DefaultLayout extends Component {
 
     render() {
         return (
             <div>
                 <Header/>
                 <div className={style.border}>
-                    body
+
+                    {this.props.children}
                 </div>
                 <Footer/>
             </div>
         );
     }
 }
-
-export default DefaultLayout

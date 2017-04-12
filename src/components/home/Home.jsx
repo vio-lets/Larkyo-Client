@@ -7,7 +7,7 @@ import config from '../../common/config.json';
 import s from '../../../styles/main.scss'
 
 
-class Home extends Component {
+export default class Home extends Component {
     render() {
         return (
             <div>
@@ -17,5 +17,3 @@ class Home extends Component {
         );
     }
 }
-
-export default Home

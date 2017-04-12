@@ -1,7 +1,11 @@
-import React from 'react'
-import {render}from 'react-dom'
-import DefaultLayout from './components/shared/DefaultLayout'
+import React, {Component} from 'react';
+import {render} from 'react-dom';
+import {HashRouter} from 'react-router-dom';
+import Routes from './routes'
+
 render(
-    <DefaultLayout/>
+    <HashRouter>
+        <Routes/>
+    </HashRouter>
     , document.getElementById('app')
 )
