@@ -46,9 +46,9 @@ Directory structure
 │   │   │   ├── /views/
 │   │   │   └── /modules/
 │   │   └── /contact-us/
-│   │   │   ├── /controllers/
-│   │   │   ├── /views/
-│   │   │   └── /modules/
+│   │       ├── /controllers/
+│   │       ├── /views/
+│   │       └── /modules/
 │   ├── /layouts/			 # Components that dictate major page structure
 │   │   ├── /default-layout/
 │   │   ├── /header/

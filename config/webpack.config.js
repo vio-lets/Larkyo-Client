@@ -28,7 +28,7 @@ const APP_ENTRY = project.paths.client('main.js')
 
 webpackConfig.entry = {
   app : __DEV__
-    ? [APP_ENTRY].concat(`webpack-hot-middleware/client?path=${project.compiler_public_path}__webpack_hmr`)
+    ? [APP_ENTRY].concat('whatwg-fetch').concat(`webpack-hot-middleware/client?path=${project.compiler_public_path}__webpack_hmr`)
     : [APP_ENTRY],
   vendor : project.compiler_vendors
 }
@@ -64,7 +64,8 @@ webpackConfig.plugins = [
     minify   : {
       collapseWhitespace : true
     }
-  })
+  }),
+  new webpack.HotModuleReplacementPlugin()
 ]
 
 // Ensure that the compiler exits on errors during testing so that
