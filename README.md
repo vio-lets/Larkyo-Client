@@ -30,16 +30,16 @@ Directory structure
 
 ```
 .
-├── /src/									# Application source code
+├── /src/						   # Application source code
 │   ├── /common/
 │   │   └── static class
-│   ├── /components/						# Global Reusable Presentational Components
+│   ├── /components/				# Global Reusable Presentational Components
 │   │   ├── /home/
-│   │   │   ├── /controllers/				# Connect components to actions and store
+│   │   │   ├── /controllers/	   # Connect components to actions and store
 │	│   │   │   └── HomeControllers.js
-│   │   │   ├── /views/						# Presentational React Components
+│   │   │   ├── /views/		 	# Presentational React Components
 │	│   │   │   └── HomeView.js
-│   │   │   └── /modules/					# Collections of reducers/constants/actions
+│   │   │   └── /modules/		   # Collections of reducers/constants/actions
 │	│   │   │   └── Home.js
 │   │   ├── /destination/
 │   │   │   ├── /controllers/
@@ -49,36 +49,36 @@ Directory structure
 │   │   │   ├── /controllers/
 │   │   │   ├── /views/
 │   │   │   └── /modules/
-│   ├── /layouts/							# Components that dictate major page structure
+│   ├── /layouts/				   # Components that dictate major page structure
 │   │   ├── /default-layout/
 │   │   ├── /header/
 │   │   └── /footer/
-│   ├── /containers/						# Global Reusable Container Components
-│   ├── /store/								# Redux-specific pieces
+│   ├── /containers/				# Global Reusable Container Components
+│   ├── /store/					 # Redux-specific pieces
 │   │   ├── createStore.js					# Create and instrument redux store
-│   │   └── reducers.js 					# Reducer registry and injection
-│   ├── /styles/							# Application-wide styles (generally settings)
-│   ├── /images/							# Application-wide images (generally settings)
-│   ├── index.html							# Main HTML page container for app
-│   └── main.js								# Application bootstrap and rendering
-├── bin										# Build/Start scripts
+│   │   └── reducers.js				 	  # Reducer registry and injection
+│   ├── /styles/					# Application-wide styles (generally settings)
+│   ├── /images/					# Application-wide images (generally settings)
+│   ├── index.html					 	   # Main HTML page container for app
+│   └── main.js							   # Application bootstrap and rendering
+├── bin					   				# Build/Start scripts
 ├── config									# Project and build configurations
 ├── public									# Static public assets (not imported anywhere in source code)
-├── dist									# Output files
-└── test									# Unit tests
+├── dist									  # Output files
+└── test									  # Unit tests
 ```
 
 Commit
 -------------
-For development mode, source code should commit to **dev** branch
-For production mode, source code should commit to **prod** branch (//TODO create prod branch)
-For testing mode, source code should commit to **test** branch (//TODO create test branch)
+-For development mode, source code should commit to **dev** branch
+-For production mode, source code should commit to **prod** branch (//TODO create prod branch)
+-For testing mode, source code should commit to **test** branch (//TODO create test branch)
 
 Commit message format:
 [Your Name] - [main update]
 ```
 	For example:
-	CS - login features update
+    CS - login features update
     CS - bug#231 fixed
     CS - reset password done
 ```
