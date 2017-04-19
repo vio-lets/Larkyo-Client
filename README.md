@@ -67,3 +67,19 @@ Directory structure
 ├── dist									# Output files
 └── test									# Unit tests
 ```
+
+Commit
+-------------
+For development mode, source code should commit to **dev** branch
+For production mode, source code should commit to **prod** branch (//TODO create prod branch)
+For testing mode, source code should commit to **test** branch (//TODO create test branch)
+
+Commit message format:
+[Your Name] - [main update]
+```
+	For example:
+	CS - login features update
+    CS - bug#231 fixed
+    CS - reset password done
+```
+
