@@ -36,11 +36,11 @@ Directory structure
 │   ├── /components/			 # Global Reusable Presentational Components
 │   │   ├── /home/
 │   │   │   ├── /controllers/	         # Connect components to actions and store
-│	│   │   │   └── HomeControllers.js
+│   │   │   │   └── HomeControllers.js
 │   │   │   ├── /views/		 	 # Presentational React Components
-│	│   │   │   └── HomeView.js
+│   │   │   │   └── HomeView.js
 │   │   │   └── /modules/		 # Collections of reducers/constants/actions
-│	│   │   │   └── Home.js
+│   │   │       └── Home.js
 │   │   ├── /destination/
 │   │   │   ├── /controllers/
 │   │   │   ├── /views/
