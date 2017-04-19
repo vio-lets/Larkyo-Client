@@ -30,26 +30,40 @@ Directory structure
 
 ```
 .
-├── src
-│   ├── common
+├── /src/									# Application source code
+│   ├── /common/
 │   │   └── static class
-│   ├── components
-│   │   ├── shared (shared components)
-│   │   │   ├── header.js
-│   │   │   └── footer.js
-│   │   ├── home (components used in home)
-│   │   │   ├── homeTopTenList.js
-│   │   │   ├── homeTopTenListItem.js
-│   │   │   └── homeSearch.js
-│   │   ├── destination
-│   │   │   ├── destinationDetail.js
-│   │   │   ├── destinationDetailDesctiption.js
-│   │   └── contactus
-│   │       ├── contactUsForm.js
-│   │       └── contactUsMap.js
-│   ├── index.html
-│   └── index.js
-├── styles
-├── dist
-└── test
+│   ├── /components/						# Global Reusable Presentational Components
+│   │   ├── /home/
+│   │   │   ├── /controllers/				# Connect components to actions and store
+│	│   │   │   └── HomeControllers.js
+│   │   │   ├── /views/						# Presentational React Components
+│	│   │   │   └── HomeView.js
+│   │   │   └── /modules/					# Collections of reducers/constants/actions
+│	│   │   │   └── Home.js
+│   │   ├── /destination/
+│   │   │   ├── /controllers/
+│   │   │   ├── /views/
+│   │   │   └── /modules/
+│   │   └── /contactus/
+│   │   │   ├── /controllers/
+│   │   │   ├── /views/
+│   │   │   └── /modules/
+│   ├── /layouts/							# Components that dictate major page structure
+│   │   ├── /default-layout/
+│   │   ├── /header/
+│   │   └── /footer/
+│   ├── /containers/						# Global Reusable Container Components
+│   ├── /store/								# Redux-specific pieces
+│   │   ├── createStore.js					# Create and instrument redux store
+│   │   └── reducers.js 					# Reducer registry and injection
+│   ├── /styles/							# Application-wide styles (generally settings)
+│   ├── /images/							# Application-wide images (generally settings)
+│   ├── index.html							# Main HTML page container for app
+│   └── main.js								# Application bootstrap and rendering
+├── bin										# Build/Start scripts
+├── config									# Project and build configurations
+├── public									# Static public assets (not imported anywhere in source code)
+├── dist									# Output files
+└── test									# Unit tests
 ```
