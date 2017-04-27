@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Counter = (props) => (
-  <div style={{margin: '0 auto'}}>
-    <h2>Counter: {props.counter.counter}</h2>
+export const Login = (props) => (
+  <div style={{ margin: '0 auto' }} >
+    <h2>Counter: {props.counter}</h2>
     <button className='btn btn-default' onClick={props.increment}>
       Increment
     </button>
@@ -19,12 +19,12 @@ export const Counter = (props) => (
   </div>
 )
 
-Counter.propTypes = {
-  counter: PropTypes.object,
-  jsonResult: PropTypes.string,
-  callApiAsync: PropTypes.func.isRequired,
-  doubleAsync: PropTypes.func.isRequired,
-  increment: PropTypes.func.isRequired
+Login.propTypes = {
+  counter     : PropTypes.number.isRequired,
+  jsonResult     : PropTypes.string,
+  callApiAsync     : PropTypes.func.isRequired,
+  doubleAsync : PropTypes.func.isRequired,
+  increment   : PropTypes.func.isRequired
 }
 
-export default Counter
+export default Login
