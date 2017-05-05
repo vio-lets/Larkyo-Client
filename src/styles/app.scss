@@ -1,0 +1,25 @@
+/*
+ * import global styling
+ * ========================================================================== */
+@import "font-awesome/css/font-awesome.css";
+@import "bootstrap/css/bootstrap.css";
+@import "bootstrap/css/bootstrap-theme.css";
+@import "variables";
+
+/*
+ * general basic styling
+ * ========================================================================== */
+
+.border
+{
+  border: solid 1px black;
+}
+
+.bg-red
+{
+  background-color: #ff5f5e;
+}
+.bg-blue
+{
+  background-color: #358043;
+}
