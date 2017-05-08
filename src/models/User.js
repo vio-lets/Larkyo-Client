@@ -1,3 +1,4 @@
-/**
- * Created by Clyde-Desktop on 7/05/2017.
- */
+export class User {
+  static userName = null;
+  static isLogin = false;
+}

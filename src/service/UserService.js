@@ -1,3 +1,26 @@
-/**
- * Created by Clyde-Desktop on 7/05/2017.
- */
+import axios from 'axios';
+
+export class UserSerivce{
+
+  constructor() {
+    // this.baseURL = baseURL;
+  }
+
+  getUserListQuery() {
+    let url = "/Accounts/Users"
+    return axios.get(url);
+  }
+
+}
+
+// function loadUserListQuery() {
+//   let url = "/Accounts/Users"
+//   return axios.get(url);
+// }
+//
+//
+// export const UserSerivce = {
+//   loadUserListQuery: loadUserListQuery()
+// }
+
+

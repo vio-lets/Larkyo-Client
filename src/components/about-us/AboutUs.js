@@ -1,26 +1,35 @@
 import React from "react";
-import { Link } from "react-router";
-import { Alert , Well} from 'react-bootstrap'; // import boostrap componets
-import axios from 'axios'
+import PropTypes from 'prop-types';
+import {Link} from "react-router";
+import {Alert, Well} from 'react-bootstrap'; // import boostrap componets
+import {userSerivce} from '../../service'
 
 export default class AboutUs extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor(props, context) {
+    super(props, context);
   }
 
-  onBtnClick(){
-    let authorizationHeader = "Bearer " + localStorage.getItem('token');
-    axios.defaults.headers.common['Authorization'] = authorizationHeader;
-    let url="/Accounts/Users"
-    axios.get(url)
-      .then(res=>res.data)
+  onBtnClick() {
+    userSerivce.getUserListQuery()
       .then(function (res) {
         console.log(res);
-        this.props.users = res;
-      }).catch(function (error) {
-      console.log(error);
-    });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // let authorizationHeader = "Bearer " + localStorage.getItem('token');
+    // axios.defaults.headers.common['Authorization'] = authorizationHeader;
+    // let url="/Accounts/Users"
+    // axios.get(url)
+    //   .then(res=>res.data)
+    //   .then(function (res) {
+    //     console.log(res);
+    //     AA.AAA="AboutUs"
+    //   }).catch(function (error) {
+    //   console.log(error);
+    // });
   };
 
   render() {
@@ -32,7 +41,7 @@ export default class AboutUs extends React.Component {
           Home Page &rarr;</Link>
 
         <button onClick={this.onBtnClick}>Users</button>
-        {this.props.users}
+
       </div>
     );
   }

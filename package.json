@@ -96,13 +96,13 @@
     "react-dom": "^0.14.7",
     "react-icons": "^2.2.3",
     "react-router": "^2.0.0",
-    "request": "^2.81.0",
     "resolve-url-loader": "^1.4.3",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
+    "semantic-ui-css": "^2.2.10",
+    "semantic-ui-react": "^0.68.3",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.14",
-    "whatwg-fetch": "^2.0.3"
+    "webpack": "^1.12.14"
   }
 }

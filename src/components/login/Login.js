@@ -2,51 +2,44 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Link} from 'react-router';
 import '../../styles/home.scss' // import this component styling only, if necessary
-import axios from 'axios'
+import {authService,setToken,clearToken} from '../../service'
+import {User} from '../../models/User'
 
 export default class Login extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.state = {someUser:this.context.someUser}
+    this.loadTokenQuery = this.loadTokenQuery.bind(this);
   }
 
-  loadTokenQuery = (formData) => {
-    console.log(formData)
-    let url = "http://localhost:31460/oauth/token";
-    let params = new URLSearchParams();
-    params.append('username', formData.username);
-    params.append('password', formData.password);
-    params.append('grant_type', "password");
-
-    axios.post(url, params)
-      .then(function (res) {
-        console.log(res);
-        console.log(res.data);
-        localStorage.setItem('token',res.data.access_token)
-
-      }).catch(function (error) {
-
-      console.log(error);
-    });
-
+  loadTokenQuery(userName,password) {
+    authService.postAccessTokenQuery(userName,password)
+      .then((res)=>res.data)
+      .then(function (data) {
+        setToken(data.access_token);
+        User.isLogin=true;
+        alert('login in success')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
 
-  _handleSubmit = (event) => {
+  _onUserLoginSubmit = (event) => {
     event.preventDefault();
-    let formData = {
-      username: event.target.username.value,
-      password: event.target.password.value
-    }
-    this.loadTokenQuery(formData);
+
+    let userName = event.target.username.value;
+    let password = event.target.password.value;
+
+    this.loadTokenQuery(userName, password);
   };
 
-  logout(event)
-  {
+  logout(event,replace) {
     event.preventDefault();
-    localStorage.clear();
-    this.props.history.pushState(null,'/')
+    clearToken()
+    console.log(replace)
   }
+
   render() {
     return (
       <div className="">
@@ -54,7 +47,7 @@ export default class Login extends React.Component {
         <Link to="/" className="btn btn-default"><i className="fa fa-home"></i>
           Home Page &rarr;</Link>
 
-        <form onSubmit={this._handleSubmit}>
+        <form onSubmit={this._onUserLoginSubmit}>
           <input
             type="text"
             name="username"
