@@ -17,7 +17,7 @@
     "style-loader": "^0.17.0"
   },
   "scripts": {
-    "dev": "webpack -d",
+    "dev": "webpack -d --watch",
     "build": "webpack -p"
   }
 }
