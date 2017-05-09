@@ -1,7 +1,7 @@
 Larkyo
 ===================
 
-Larkyo client application. Please read this document before starting development.
+Larkyo client application. Please read this document before starting development. 
 
 
 ----------
@@ -15,12 +15,11 @@ Naming conventions The following table is shown the naming conventions for every
 Element   			 | Naming style  |Example  |usage
 -------------------- | --------------|---------| ---
 Folder	       		 | lower-case|about-us |
-Components     		 | UpperCamelCase+'View'|ContactUsView|view
-modules				 | UpperCamelCase|DestinationDetail|model
-Containers				 | UpperCamelCase+'Controller'|DestinationDetailController|controler
+Components     		 | UpperCamelCase|ContactUs|
+models				 | UpperCamelCase|DestinationDetail|model
 Functions      		 | lowerCamelCase|saveValidation()|
 Event Functions		 |'on'+'component'+'event'|onLoginBtnClick()
-Fetch Query Functions| 'load'+'Query'|loadDestinationListQuery()|services
+Query Functions| 'get/post'+ lowerCamelCase|loadDestinationListQuery()|services
 Fields| lowerCamelCase| userName|
 
 
@@ -32,38 +31,38 @@ Directory structure
 .
 ├── /src/				 # Application source code
 │   ├── /common/
-│   │   └── static class
-│   ├── /components/			 # Global Reusable Presentational Components
+│   │   └── common class if need
+│   ├── /components/			 # main feature components
+│   │   ├── /about-us/
+│   │   │   └── AboutUs.js	         
 │   │   ├── /home/
-│   │   │   ├── /controllers/	         # Connect components to actions and store
-│   │   │   │   └── HomeControllers.js
-│   │   │   ├── /views/		 	 # Presentational React Components
-│   │   │   │   └── HomeView.js
-│   │   │   └── /modules/		 # Collections of reducers/constants/actions
-│   │   │       └── Home.js
-│   │   ├── /destination/
-│   │   │   ├── /controllers/
-│   │   │   ├── /views/
-│   │   │   └── /modules/
-│   │   └── /contact-us/
-│   │       ├── /controllers/
-│   │       ├── /views/
-│   │       └── /modules/
-│   ├── /layouts/			 # Components that dictate major page structure
-│   │   ├── /default-layout/
-│   │   ├── /header/
-│   │   └── /footer/
-│   ├── /containers/			 # Global Reusable Container Components
-│   ├── /store/				 # Redux-specific pieces
-│   │   ├── createStore.js		 # Create and instrument redux store
-│   │   └── reducers.js			 # Reducer registry and injection
+│   │   │   └── Home.js
+│   │   └── /login/
+│   │       ├── SignIn.js
+│   │       ├── SignUpForm.js
+│   │       └── SignInForm.js
+│   ├── /models/			 # model classes
+│   │   └── Users.js
+│   ├── /service/			 # serivce classes for calling API 
+│   │   ├── AuthenticationService.js
+│   │   ├── UserService.js
+│   │   └── index.js
+│   ├── /shared/			 # all shared components
+│   │   ├── /components/		 # shared layout components
+│   │   │   ├── Header.js
+│   │   │   ├── Footer.js
+│   │   │   └── SideMenu.js
+│   │   ├── App.js			 # app starter
+│   │   └── Routes.js			 # router control
 │   ├── /styles/			 # Application-wide styles
+│   │   ├── variables.scss
+│   │   ├── app.scss
+│   │   ├── home.scss
+│   │   └── login.scss			 
 │   ├── /images/			 # Application-wide images
-│   ├── index.html			 # Main HTML page container for app
-│   └── main.js				 # Application bootstrap and rendering
-├── bin					 # Build/Start scripts
+│   ├── index.tpl.html		         # Main HTML page container for app
+│   └── main.js			         # Application entry point
 ├── config				 # Project and build configurations
-├── public				 # Static public assets (not imported anywhere in source code)
 ├── dist				 # Output files
 └── test				 # Unit tests
 ```
@@ -76,12 +75,18 @@ Commit
 
 -For testing mode, source code should commit to **test** branch (//TODO create _test_ branch)
 
-Commit message format:
-[Your Name] - [main update]
+
+Usage
+-------------
+To build the code, follow these steps.
+
+Ensure that NodeJS is installed. This provides the platform on which the build tooling runs.
+From the project folder, execute the following command:
 ```
-For example:
-    CS - login features update
-    CS - bug#231 fixed
-    CS - reset password done
+npm install
+```
+To start the code, you can now run:
+```
+npm start
 ```
 
