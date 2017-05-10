@@ -1,24 +1,57 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import axios from 'axios';
-import './../styles/app.scss'//do not need to import in child components.
-import {User,AA} from '../common/User'
-axios.defaults.baseURL = 'http://localhost:31460/api';
+import {Sidebar, Menu, Segment,Label} from 'semantic-ui-react'
+
+import Topbar from './components/Topbar'
+import SideMenu from './components/SideMenu'
+import {User} from '../models/User'
+
 export default class App extends React.Component {
+
+
   constructor(props) {
     super(props);
-    this.updateUserState = this.updateUserState.bind(this)
+    this.toggleSidebarVisibility=this.toggleSidebarVisibility.bind(this)
+    this.state = { visible: false }
   }
 
-  updateUserState(userState) {
-    console.log(userState)
+  componentWillMount() {
+    this.initData();
+
   }
 
+  initData() {
+    let token = localStorage.getItem('passport');
+    if(token)
+    {
+        //TODO check toke is vaild
+      User.hasToken = true;
+      User.isLogin = true;
+    }else{
+      User.hasToken = false;
+      User.isLogin = false;
+    }
+  }
+
+  toggleSidebarVisibility(){
+    this.setState({ visible: !this.state.visible })
+  }
   render() {
+    const { visible } = this.state
     return (
-      <div id="container">
-        <div className="container-fluid border bg-red">
-          {React.cloneElement(this.props.children, {...this.props})}
+      <div className="height100">
+        <Topbar toggleSidebar={this.toggleSidebarVisibility}></Topbar>
+        <div id="main-container" className="height100 padding-top20">
+          <Sidebar.Pushable>
+            <Sidebar as={Menu} className="sidebarMenu" animation='overlay' visible={visible} vertical>
+
+              <SideMenu></SideMenu>
+            </Sidebar>
+            <Sidebar.Pusher>
+              <div className="container-fluid height100">
+                {React.cloneElement(this.props.children, {...this.props})}
+              </div>
+            </Sidebar.Pusher>
+          </Sidebar.Pushable>
         </div>
       </div>
     )

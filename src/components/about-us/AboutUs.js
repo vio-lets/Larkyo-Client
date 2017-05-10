@@ -1,7 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import {Link} from "react-router";
-import {Alert, Well} from 'react-bootstrap'; // import boostrap componets
 import {userSerivce} from '../../service'
 
 export default class AboutUs extends React.Component {

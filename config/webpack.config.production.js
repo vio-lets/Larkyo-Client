@@ -11,7 +11,6 @@ const outDir = path.resolve('dist');
 
 module.exports = _.extend({}, config, {
   entry: [
-    'bootstrap-loader/extractStyles',
     srcDir+'/main.js'
   ],
   output: {

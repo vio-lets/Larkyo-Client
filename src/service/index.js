@@ -9,8 +9,8 @@ export const userSerivce = new UserSerivce();
 export const authService = new AuthenticationService();
 
 export function setToken(access_token){
-  localStorage.setItem('token', access_token);
-  axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('token');
+  localStorage.setItem('passport', access_token);
+  axios.defaults.headers.common['Authorization'] = "Bearer " + localStorage.getItem('passport');
 }
 export function clearToken(){
   axios.defaults.headers.common['Authorization'] = "";

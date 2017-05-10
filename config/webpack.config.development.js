@@ -11,7 +11,6 @@ module.exports = {
   devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
-    'bootstrap-loader',
     srcDir+'/main.js'
   ],
   output: {

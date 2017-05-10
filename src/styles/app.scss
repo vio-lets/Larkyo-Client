@@ -8,19 +8,88 @@
 @import "variables";
 
 /*
+ * html styling
+ * ========================================================================== */
+
+/*
  * general basic styling
  * ========================================================================== */
 
-.border
-{
+.border {
   border: solid 1px black;
 }
 
-.bg-red
-{
+.height100 {
+  height: 100%;
+}
+.margin-top10 {
+  margin-top: #{$sm};
+}
+.margin-top15 {
+  margin-top: #{$md};
+}
+.margin-top20 {
+  margin-top: #{$lg};
+}
+
+.margin-bottom20 {
+  margin-bottom: #{$lg};
+}
+
+.padding-top20 {
+  padding-top: #{$lg};
+}
+
+.red-text {
+  color: #ff5f5e;
+}
+
+.blue-text {
+  color: #1b60ff;
+}
+
+.bg-red {
   background-color: #ff5f5e;
 }
-.bg-blue
-{
+
+.bg-blue {
   background-color: #358043;
+}
+
+/*
+ * App component styling
+ * ========================================================================== */
+
+#app {
+  height: 100%;
+}
+
+#topbar {
+  line-height: #{$lg};
+  box-shadow: 0px -10px 20px 0px black;
+}
+
+.sidebarMenu {
+  width: 200px;
+}
+
+.user-avatar {
+  width: 244px;
+  margin-top: -10px;
+}
+.user-credit
+{
+  float: right;
+  left: 123px !important;
+  top: 36px;
+  z-index: 1;
+}
+
+.user-tag {
+  font-size: smaller;
+  margin-right: 5px;
+  padding: 1px 5px;
+  box-shadow: 0px 0px 0px 1px #23b385;
+  color: #23b385;
+  font-weight: 100;
 }
