@@ -1,4 +1,4 @@
 import Banner from './Banner.jsx'
-import NavigationBar from './NavigationBar.jsx'
+import Destinations from './Destinations.jsx'
 
-export {Banner, NavigationBar}
+export {Banner, Destinations}

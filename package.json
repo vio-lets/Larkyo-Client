@@ -9,15 +9,19 @@
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "webpack": "^2.5.1"
   },
   "devDependencies": {
     "css-loader": "^0.28.1",
     "react-scripts": "0.9.5",
-    "style-loader": "^0.17.0"
+    "style-loader": "^0.17.0",
+    "webpack-dev-server": "^2.4.5"
   },
   "scripts": {
-    "dev": "webpack -d --watch",
+    "start": "webpack-dev-server --contentBase public --open",
+    "dev": "webpack -d",
     "build": "webpack -p"
   }
 }
