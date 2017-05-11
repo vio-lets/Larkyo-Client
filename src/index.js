@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
+import {AppContainer} from 'react-hot-loader'
 import {
     BrowserRouter as Router,
     Route,
@@ -7,6 +8,15 @@ import {
 } from 'react-router-dom'
 import Home from './screens/home'
 import {NavigationBar} from './components'
+
+const render = (Component) => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component/>
+        </AppContainer>,
+        document.getElementById('root')
+    );
+};
 
 class Plan extends React.Component {
     render() {
@@ -55,9 +65,9 @@ class App extends React.Component {
                     <NavigationBar/>
 
                     {/*<div className="content">*/}
-                        {/*{routes.map((route, i) => (*/}
-                            {/*<RouteWithSubRoute key={i} exact={route.exact} {...route}/>*/}
-                        {/*))}*/}
+                    {/*{routes.map((route, i) => (*/}
+                    {/*<RouteWithSubRoute key={i} exact={route.exact} {...route}/>*/}
+                    {/*))}*/}
                     {/*</div>*/}
 
                     <div className="container">
@@ -71,7 +81,11 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+
+render(App);
+
+if (module.hot) {
+    module.hot.accept('./', () => {
+        render(App)
+    })
+}

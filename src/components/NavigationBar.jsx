@@ -1,6 +1,6 @@
 import React from 'react'
-import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
+import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap'
 
 class NavigationBar extends React.Component {
     signIn() {
