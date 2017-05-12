@@ -18,7 +18,8 @@ const config = {
     devServer: {
         publicPath: "/scripts/",
         contentBase: "./public",
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
     module: {
         loaders: [

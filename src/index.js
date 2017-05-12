@@ -60,7 +60,7 @@ const RouteWithSubRoute = (route) => (
 class App extends React.Component {
     render() {
         return (
-            <Router history="">
+            <Router history="/">
                 <div>
                     <NavigationBar/>
 
