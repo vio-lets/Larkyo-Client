@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
                 <Row className="show-grid">
                     <Col xs={12} md={4} mdOffset={4}>
                         <Thumbnail
-                            // style={{backgroundcolor: lightgray}}
+                            style={{backgroundColor: 'lightgray'}}
                             src="http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-attractions-xlarge.jpg"
                             alt="242x200">
                             <form>
@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
                                 <FormGroup>
                                     {/*<ControlLabel>Password</ControlLabel>*/}
                                     <InputGroup>
-                                        <FormControl type="text" placeholder="Enter Password"/>
+                                        <FormControl type="password" placeholder="Enter Password"/>
                                         <InputGroup.Addon><Glyphicon glyph="lock"/></InputGroup.Addon>
                                     </InputGroup>
                                 </FormGroup>

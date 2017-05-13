@@ -1,0 +1,13 @@
+.navbar {
+    border-radius: 0px;
+}
+
+.btn-danger {
+    color: #d9534f;
+    background: none;
+    border-color: #d9534f;
+}
+
+.customNavItems li a {
+    padding: 0px;
+}

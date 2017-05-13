@@ -1,20 +1,25 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { Button, ButtonToolbar, Glyphicon, Nav, Navbar } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
+import './css/styles.css'
 
 class NavigationBar extends React.Component {
     constructor (props) {
         super(props);
-        this.signIn = this.signIn.bind(this);
+        this.state = {
+            activeKey: '/'
+        };
         this.register = this.register.bind(this);
-    }
-
-    signIn () {
-        this.props.history.push('/signin');
+        this.navigate = this.navigate.bind(this);
     }
 
     register () {
         alert('Register clicked');
+    }
+
+    navigate (eventKey) {
+        this.setState({activeKey: eventKey});
+        this.props.history.push(eventKey);
     }
 
     render () {
@@ -27,29 +32,20 @@ class NavigationBar extends React.Component {
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
-                    <Nav>
-                        <ul className="navigation header">
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/plan">Plan</Link></li>
-                            <li><Link to="/team">Team</Link></li>
-                        </ul>
-
-                        {/*<NavItem eventKey="first"><Link to="/">Home</Link></NavItem>*/}
-                        {/*<NavItem eventKey="second"><Link to="/plan">Plan</Link></NavItem>*/}
-                        {/*<NavItem eventKey={3} href="#"><Link to="/team">Team</Link></NavItem>*/}
-
-                        {/*<NavItem eventKey={1} href="/">Home</NavItem>*/}
-                        {/*<NavItem eventKey={2} href="#/plan">Plan</NavItem>*/}
-                        {/*<NavItem eventKey={3} href="/team">Team</NavItem>*/}
-
+                    <Nav activeKey={this.state.activeKey} onSelect={this.navigate}>
+                        <NavItem eventKey="/">Home</NavItem>
+                        <NavItem eventKey="/plan">Plan</NavItem>
+                        <NavItem eventKey="/team">Team</NavItem>
                     </Nav>
-                    <Nav pullRight>
-                        <ButtonToolbar>
-                            <Button bsStyle="danger" className="navbar-btn" onClick={this.register}><Glyphicon
-                                glyph="user"/> Register</Button>
-                            <Button bsStyle="info" className="navbar-btn" onClick={this.signIn}><Glyphicon
-                                glyph="log-in"/> Sign In</Button>
-                        </ButtonToolbar>
+                    <Nav pullRight className="customNavItems" style={{padding: '0px'}}>
+                        <NavItem eventKey="/team">
+                            <ButtonToolbar>
+                                <Button bsStyle="danger" className="navbar-btn" onClick={this.register}><Glyphicon
+                                    glyph="user"/> Register</Button>
+                                <Button bsStyle="info" className="navbar-btn"
+                                        onClick={() => {this.navigate('/signin');}}><Glyphicon glyph="log-in"/> Sign In</Button>
+                            </ButtonToolbar>
+                        </NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
