@@ -5,6 +5,7 @@ const BUILD_DIR = path.resolve(__dirname, 'public');
 const SRC_DIR = path.resolve(__dirname, 'src');
 
 const config = {
+    devtool:'source-map',
     entry: [
         'react-hot-loader/patch',
         'webpack/hot/only-dev-server',
