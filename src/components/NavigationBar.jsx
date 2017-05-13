@@ -1,10 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap'
 
 class NavigationBar extends React.Component {
     signIn() {
-        alert('Sign in clicked')
+        alert('Sign in clicked');
+        history.push("/signin")
+
+      // return (
+      // <Redirect to="/signin"/>
+      //   );
     }
 
     register() {

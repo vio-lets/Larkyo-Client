@@ -7,6 +7,7 @@ import {
     Link,
 } from 'react-router-dom'
 import Home from './screens/home'
+import LoginForm from './screens/authentication'
 import {NavigationBar} from './components'
 
 const render = (Component) => {
@@ -74,6 +75,7 @@ class App extends React.Component {
                         <Route exact path="/" component={Home}/>
                         <Route path="/plan" component={Plan}/>
                         <Route path="/team" component={Team}/>
+                        <Route path="/signin" component={LoginForm}/>
                     </div>
                 </div>
             </Router>
