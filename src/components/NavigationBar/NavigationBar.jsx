@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
-import './css/styles.css'
+import './styles.css'
 
 class NavigationBar extends React.Component {
     constructor (props) {
