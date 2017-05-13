@@ -1,10 +1,10 @@
-import React from 'react'
-import {Jumbotron} from '../../../components'
+import React from 'react';
 import logo from './logo.svg';
-import '../css/style.css'
+import '../css/style.css';
+import { Jumbotron } from 'react-bootstrap';
 
 class Banner extends React.Component {
-    render() {
+    render () {
         return (
             <div className="container">
                 <Jumbotron>
@@ -13,8 +13,8 @@ class Banner extends React.Component {
                     <p>This area will be replaced by a video I suppose</p>
                 </Jumbotron>
             </div>
-        )
+        );
     }
 }
 
-export default Banner
+export default Banner;
