@@ -1,8 +1,8 @@
-import React from 'react'
-import {Banner, Destinations} from './components'
+import React from 'react';
+import { Banner, Destinations } from './components';
 
 export default class Home extends React.Component {
-    render() {
+    render () {
         return (
             <div>
                 <div>
@@ -10,7 +10,7 @@ export default class Home extends React.Component {
                     <Destinations/>
                 </div>
             </div>
-        )
+        );
     }
 }
 

@@ -1,8 +1,8 @@
-import React from 'react'
-import {Col, Grid, Row, Thumbnail} from 'react-bootstrap'
+import React from 'react';
+import { Col, Grid, Row, Thumbnail } from 'react-bootstrap';
 
 class Destinations extends React.Component {
-    render() {
+    render () {
         return (
             <div className="destination">
                 <h3>Destinations</h3>
@@ -35,8 +35,8 @@ class Destinations extends React.Component {
                     </Row>
                 </Grid>
             </div>
-        )
+        );
     }
 }
 
-export default Destinations
+export default Destinations;

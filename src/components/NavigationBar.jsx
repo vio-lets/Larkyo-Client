@@ -1,23 +1,23 @@
-import React from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap'
+import React from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { Button, ButtonToolbar, Glyphicon, Nav, Navbar } from 'react-bootstrap';
 
 class NavigationBar extends React.Component {
-    signIn() {
-        alert('Sign in clicked');
-        history.push("/signin")
-
-      // return (
-      // <Redirect to="/signin"/>
-      //   );
+    constructor (props) {
+        super(props);
+        this.signIn = this.signIn.bind(this);
+        this.register = this.register.bind(this);
     }
 
-    register() {
-        alert('Register clicked')
+    signIn () {
+        this.props.history.push('/signin');
     }
 
-    render() {
+    register () {
+        alert('Register clicked');
+    }
 
+    render () {
         return (
             <Navbar inverse fluid collapseOnSelect>
                 <Navbar.Header>
@@ -53,8 +53,8 @@ class NavigationBar extends React.Component {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-        )
+        );
     }
 }
 
-export default NavigationBar
+export default withRouter(NavigationBar);

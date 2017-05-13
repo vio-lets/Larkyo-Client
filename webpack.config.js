@@ -17,8 +17,8 @@ const config = {
         publicPath: '/'
     },
     devServer: {
-        publicPath: "/scripts/",
-        contentBase: "./public",
+        publicPath: '/scripts/',
+        contentBase: './public',
         hot: true,
         historyApiFallback: true
     },
