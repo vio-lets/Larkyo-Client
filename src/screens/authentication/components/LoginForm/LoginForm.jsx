@@ -2,8 +2,8 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 // import {Button, Col, FormControl, FormGroup, Glyphicon, Grid, InputGroup, Row, Thumbnail} from 'react-bootstrap';
 import { Form } from 'semantic-ui-react'
-import {authService, setToken, clearToken} from '../../../services'
-import {User} from '../../../models/User'
+import {authService, setToken, clearToken} from '../../../../services'
+import {User} from '../../../../models/User'
 
 class LoginForm extends React.Component {
 
