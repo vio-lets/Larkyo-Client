@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
-import '../css/style.css';
+import './style.css';
 import { Jumbotron } from 'react-bootstrap';
 
 class Banner extends React.Component {
