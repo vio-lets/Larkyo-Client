@@ -1,39 +1,62 @@
 import React from 'react';
-import { Button, Col, FormControl, FormGroup, Glyphicon, Grid, InputGroup, Row, Thumbnail } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
+// import {Button, Col, FormControl, FormGroup, Glyphicon, Grid, InputGroup, Row, Thumbnail} from 'react-bootstrap';
+import { Form } from 'semantic-ui-react'
+import {authService, setToken, clearToken} from '../../../services'
+import {User} from '../../../models/User'
 
 class LoginForm extends React.Component {
-    render () {
+
+    state = { username: '', password: '' }
+    constructor(props, context) {
+        super(props, context);
+        this.onLoginFormSubmit = this.onLoginFormSubmit.bind(this)
+        this.loadTokenQuery = this.loadTokenQuery.bind(this)
+
+    }
+    handleChange = (e, { name, value }) => this.setState({ [name]: value })
+
+    loadTokenQuery(userName, password) {
+        authService.postAccessTokenQuery(userName, password)
+            .then((res)=>res.data)
+            .then(function (data) {
+                setToken(data.access_token);
+                User.isLogin = true;
+                User.hasToken = true;
+                alert('login in success')
+                this.props.history.push('/');
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    onLoginFormSubmit(event) {
+        event.preventDefault();
+        const { username, password } = this.state
+        this.loadTokenQuery(username, password);
+    }
+
+    logout(event, replace) {
+        event.preventDefault();
+        clearToken()
+        console.log(replace)
+    }
+
+    render() {
+        const { username, password } = this.state
         return (
-            <Grid>
-                <Row className="show-grid">
-                    <Col xs={12} md={4} mdOffset={4}>
-                        <Thumbnail
-                            style={{backgroundColor: 'lightgray'}}
-                            src="http://www.telegraph.co.uk/content/dam/Travel/Destinations/Europe/France/Paris/paris-attractions-xlarge.jpg"
-                            alt="242x200">
-                            <form>
-                                <FormGroup>
-                                    {/*<ControlLabel>Username</ControlLabel>*/}
-                                    <InputGroup>
-                                        <FormControl type="text" placeholder="Enter Username"/>
-                                        <InputGroup.Addon><Glyphicon glyph="user"/></InputGroup.Addon>
-                                    </InputGroup>
-                                </FormGroup>
-                                <FormGroup>
-                                    {/*<ControlLabel>Password</ControlLabel>*/}
-                                    <InputGroup>
-                                        <FormControl type="password" placeholder="Enter Password"/>
-                                        <InputGroup.Addon><Glyphicon glyph="lock"/></InputGroup.Addon>
-                                    </InputGroup>
-                                </FormGroup>
-                                <Button type="submit" bsStyle="primary" block>Login</Button>
-                            </form>
-                        </Thumbnail>
-                    </Col>
-                </Row>
-            </Grid>
+        <div>
+            <Form onSubmit={this.onLoginFormSubmit}>
+                <Form.Group>
+                    <Form.Input placeholder='Enter Username' type='text' name='username' value={username} onChange={this.handleChange} />
+                    <Form.Input placeholder='Enter Password' type='password' name='password' value={password} onChange={this.handleChange} />
+                    <Form.Button content='Submit' />
+                </Form.Group>
+            </Form>
+        </div>
         );
     }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
