@@ -1,6 +1,9 @@
+import React from 'react';
 
-export class User {
-  static userName = null;
-  static isLogin = false;
-  static hasToken = false;
+export default class User {
+    constructor (userName, isLogin, hasToken) {
+        this.userName = userName;
+        this.isLogin = isLogin;
+        this.hasToken = hasToken;
+    }
 }
