@@ -1,28 +1,38 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
+import {withRouter} from 'react-router-dom';
+import {clearToken} from "./../../services"
+import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap';
 import './styles.css'
 
 class NavigationBar extends React.Component {
-    constructor (props) {
-        super(props);
+    constructor(...args) {
+        super(...args);
         this.state = {
-            activeKey: '/'
+            activeKey: '/',
+            userIsLogin:false
         };
         this.register = this.register.bind(this);
+        this.onLogoutBtnClick = this.onLogoutBtnClick.bind(this);
         this.navigate = this.navigate.bind(this);
     }
 
-    register () {
+    register() {
         alert('Register clicked');
     }
 
-    navigate (eventKey) {
+    navigate(eventKey) {
         this.setState({activeKey: eventKey});
         this.props.history.push(eventKey);
     }
 
-    render () {
+    onLogoutBtnClick()
+    {
+        clearToken();
+        this.setState({activeKey: '/'});
+        this.props.history.push('/');
+    }
+
+    render() {
         return (
             <Navbar inverse fluid collapseOnSelect>
                 <Navbar.Header>
@@ -43,7 +53,9 @@ class NavigationBar extends React.Component {
                                 <Button bsStyle="danger" className="navbar-btn" onClick={this.register}><Glyphicon
                                     glyph="user"/> Register</Button>
                                 <Button bsStyle="info" className="navbar-btn"
-                                        onClick={() => {this.navigate('/signin');}}><Glyphicon glyph="log-in"/> Sign In</Button>
+                                        onClick={() => {
+                                            this.navigate('/signin');
+                                        }}><Glyphicon glyph="log-in"/> Sign In</Button>
                             </ButtonToolbar>
                         </NavItem>
                     </Nav>

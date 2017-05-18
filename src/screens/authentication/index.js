@@ -1,10 +1,10 @@
 import React from 'react';
-import { LoginForm } from './components';
+import { LoginPage } from './components';
 
 class Authentication extends React.Component {
     render () {
         return (
-            <LoginForm/>
+            <LoginPage/>
         );
     }
 }

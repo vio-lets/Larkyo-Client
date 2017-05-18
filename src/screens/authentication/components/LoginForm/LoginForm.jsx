@@ -1,8 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-// import {Button, Col, FormControl, FormGroup, Glyphicon, Grid, InputGroup, Row, Thumbnail} from 'react-bootstrap';
-import { Form } from 'semantic-ui-react';
-import { authService, clearToken, setToken } from '../../../../services';
+import {withRouter} from 'react-router-dom';
+import {Form} from 'semantic-ui-react';
+import {Col,FormGroup,ControlLabel,FormControl} from 'react-bootstrap'
+import {authService, clearToken, setToken} from '../../../../services';
 import User from '../../../../models/User';
 
 class LoginForm extends React.Component {
@@ -11,10 +11,11 @@ class LoginForm extends React.Component {
         this.state = {username: '', password: ''};
         this.handleChange = this.handleChange.bind(this);
         this.onLoginFormSubmit = this.onLoginFormSubmit.bind(this);
-        this.loadTokenQuery = this.loadTokenQuery.bind(this);
     }
 
-    handleChange (event, {name, value}) {
+    handleChange (event) {
+        let name = event.target.name;
+        let value = event.target.value;
         this.setState({[name]: value});
     }
 
@@ -40,25 +41,25 @@ class LoginForm extends React.Component {
         this.loadTokenQuery(username, password);
     }
 
-    logout (event, replace) {
-        event.preventDefault();
-        clearToken();
-        console.log(replace);
-    }
-
     render () {
-        const {username, password} = this.state;
         return (
-            <div>
+            <div className="col-xs-12 no-padding">
                 <Form onSubmit={this.onLoginFormSubmit}>
-                    <Form.Group>
-                        <Form.Input placeholder='Enter Username' type='text' name='username' value={this.state.username}
-                                    onChange={this.handleChange}/>
-                        <Form.Input placeholder='Enter Password' type='password' name='password'
-                                    value={this.state.password}
-                                    onChange={this.handleChange}/>
-                        <Form.Button content='Submit'/>
-                    </Form.Group>
+                    <Form.Field>
+                        <label htmlFor="username">First Name</label>
+                        <input placeholder='Enter Username' type='text' name='username' id="username"
+                               value={this.state.username}
+                               onChange={this.handleChange} />
+                    </Form.Field>
+                    <Form.Field>
+                        <label htmlFor="password">Password</label>
+                        <input placeholder='Enter Password' type='password' name='password' id="password"
+                               value={this.state.password}
+                               onChange={this.handleChange} />
+                    </Form.Field>
+                    <Form.Field>
+                        <Form.Button className="pull-right" content='Submit' basic color='green'/>
+                    </Form.Field>
                 </Form>
             </div>
         );

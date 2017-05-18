@@ -2,7 +2,7 @@ import axios from 'axios';
 import {UserSerivce} from './UserService';
 import {AuthenticationService} from './AuthenticationService'
 
-// let baseURL = 'http://localhost:31460/api';
+
 axios.defaults.baseURL = 'http://localhost:31460/api';
 
 export const userSerivce = new UserSerivce();

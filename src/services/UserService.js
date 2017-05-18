@@ -8,19 +8,24 @@ export class UserSerivce{
 
   getUserListQuery() {
     let url = "/Accounts/Users"
-    return axios.get(url);
+    try{
+      return axios.get(url);
+    }catch (e){
+      alert(e.message)
+    }
   }
 
+  postCreateUserQuery(username,password,confirmPassword)
+  {
+    let url="/Accounts/Users"
+    try{
+      return axios.post(url,{
+        UserName:username,
+        Password:password,
+        ConfirmedPassword:confirmPassword
+      });
+    }catch (e){
+      alert(e.message)
+    }
+  }
 }
-
-// function loadUserListQuery() {
-//   let url = "/Accounts/Users"
-//   return axios.get(url);
-// }
-//
-//
-// export const UserSerivce = {
-//   loadUserListQuery: loadUserListQuery()
-// }
-
-
