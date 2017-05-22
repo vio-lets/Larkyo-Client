@@ -29,6 +29,7 @@ class LoginForm extends React.Component {
                 User.hasToken = true;
                 alert('login in success');
                 _this.props.history.push('/');
+                _this.props.handleLoginSuccess();
             })
             .catch(function (error) {
                 console.log(error);

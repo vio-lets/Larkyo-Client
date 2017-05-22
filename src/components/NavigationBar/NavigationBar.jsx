@@ -1,38 +1,57 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {clearToken} from "./../../services"
-import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap';
-import './styles.css'
+import { withRouter } from 'react-router-dom';
+import { clearToken } from './../../services';
+import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
+import './styles.css';
 
 class NavigationBar extends React.Component {
-    constructor(...args) {
+    constructor (...args) {
         super(...args);
         this.state = {
             activeKey: '/',
-            userIsLogin:false
+            userLoggedIn: this.props.userLoggedIn
         };
         this.register = this.register.bind(this);
         this.onLogoutBtnClick = this.onLogoutBtnClick.bind(this);
         this.navigate = this.navigate.bind(this);
     }
 
-    register() {
+    register () {
         alert('Register clicked');
     }
 
-    navigate(eventKey) {
+    navigate (eventKey) {
         this.setState({activeKey: eventKey});
         this.props.history.push(eventKey);
     }
 
-    onLogoutBtnClick()
-    {
+    onLogoutBtnClick () {
         clearToken();
         this.setState({activeKey: '/'});
         this.props.history.push('/');
     }
 
-    render() {
+    render () {
+        const signOutButton =
+            <NavItem>
+                <Button bsStyle="info" className="navbar-btn"
+                        onClick={() => {
+                            this.props.loginStateHandler(false);
+                            this.navigate('/');
+                        }}><Glyphicon glyph="log-out"/> Sign Out</Button>
+            </NavItem>;
+
+        const signInButton =
+            <NavItem>
+                <ButtonToolbar>
+                    <Button bsStyle="danger" className="navbar-btn"
+                            onClick={this.register}><Glyphicon glyph="user"/> Register</Button>
+                    <Button bsStyle="info" className="navbar-btn"
+                            onClick={() => {this.navigate('/signin');}}><Glyphicon glyph="log-in"/> Sign
+                        In</Button>
+                </ButtonToolbar>
+            </NavItem>;
+
         return (
             <Navbar inverse fluid collapseOnSelect>
                 <Navbar.Header>
@@ -44,20 +63,21 @@ class NavigationBar extends React.Component {
                 <Navbar.Collapse>
                     <Nav activeKey={this.state.activeKey} onSelect={this.navigate}>
                         <NavItem eventKey="/">Home</NavItem>
-                        <NavItem eventKey="/plan">Plan</NavItem>
-                        <NavItem eventKey="/team">Team</NavItem>
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/plan">Plan</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/team">Team</NavItem>
+                        }
                     </Nav>
                     <Nav pullRight className="customNavItems" style={{padding: '0px'}}>
-                        <NavItem eventKey="/team">
-                            <ButtonToolbar>
-                                <Button bsStyle="danger" className="navbar-btn" onClick={this.register}><Glyphicon
-                                    glyph="user"/> Register</Button>
-                                <Button bsStyle="info" className="navbar-btn"
-                                        onClick={() => {
-                                            this.navigate('/signin');
-                                        }}><Glyphicon glyph="log-in"/> Sign In</Button>
-                            </ButtonToolbar>
-                        </NavItem>
+                        {
+                            this.props.userLoggedIn
+                                ? signOutButton
+                                : signInButton
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

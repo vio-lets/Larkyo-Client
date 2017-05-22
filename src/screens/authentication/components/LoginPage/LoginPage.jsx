@@ -1,49 +1,56 @@
 import React from 'react';
-import {Menu} from 'semantic-ui-react';
-import LoginForm from '../LoginForm/LoginForm.jsx'
-import SignupForm from '../SignupForm/SignupForm.jsx'
+import { Menu } from 'semantic-ui-react';
+import LoginForm from '../LoginForm/LoginForm.jsx';
+import SignupForm from '../SignupForm/SignupForm.jsx';
 
-class LoginPage extends React.Component{
-    constructor(props) {
+class LoginPage extends React.Component {
+    constructor (props) {
         super(props);
-        this.state = {activeItem: 'login'}
+        this.state = {activeItem: 'login'};
         this.handleItemClick = this.handleItemClick.bind(this);
+        this.onSuccess = this.onSuccess.bind(this);
+    }
 
+    handleItemClick (e, {name}) {
+        this.setState({activeItem: name});
     }
-    handleItemClick(e, {name}) {
-        this.setState({activeItem: name})
+
+    onSuccess() {
+        this.props.handleLoginState(true);
     }
-    switchLoginOrSignup()
-    {
+
+    switchLoginOrSignup () {
         switch (this.state.activeItem) {
             case 'sign up':
-                return <SignupForm/>
+                return <SignupForm handleLoginSuccess={this.onSuccess}/>;
                 break;
             default:
-                return <LoginForm/>
+                return <LoginForm handleLoginSuccess={this.onSuccess}/>;
                 break;
         }
     }
 
-    render(){
-        const {activeItem} = this.state
-        return(
+    render () {
+        const {activeItem} = this.state;
+        return (
             <div className="col-xs-12">
                 <div className="col-xs-6">
                     <img src="http://placehold.it/350x350" alt=""/>
                 </div>
                 <div className="col-xs-6">
                     <Menu pointing secondary>
-                        <Menu.Item name='login' active={activeItem === 'login'} onClick={this.handleItemClick}></Menu.Item>
-                        <Menu.Item name='sign up' active={activeItem === 'sign up'} onClick={this.handleItemClick}></Menu.Item>
+                        <Menu.Item name='login' active={activeItem === 'login'}
+                                   onClick={this.handleItemClick}></Menu.Item>
+                        <Menu.Item name='sign up' active={activeItem === 'sign up'}
+                                   onClick={this.handleItemClick}></Menu.Item>
                     </Menu>
                     {this.switchLoginOrSignup(activeItem)}
                 </div>
-                
+
             </div>
-            
-        )
+
+        );
     }
 }
 
-export default LoginPage
+export default LoginPage;
