@@ -17,13 +17,15 @@ export class UserSerivce{
 
   postCreateUserQuery(username,password,confirmPassword)
   {
-    let url="/Accounts/Users"
+    let url="/Accounts/User"
     try{
-      return axios.post(url,{
-        UserName:username,
-        Password:password,
-        ConfirmedPassword:confirmPassword
-      });
+
+      let params = new URLSearchParams();
+      params.append('UserName', username);
+      params.append('Password', password);
+      params.append('ConfirmedPassword', confirmPassword);
+
+      return axios.post(url, params);
     }catch (e){
       alert(e.message)
     }

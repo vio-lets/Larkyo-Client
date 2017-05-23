@@ -26,7 +26,6 @@ class SignupForm extends React.Component {
 
     postSignUpUserQuery(userName, password, rePassword) {
         userSerivce.postCreateUserQuery(userName, password,rePassword)
-            .then((res) => res.data)
             .then(function (data) {
                 console.log(data)
             })
@@ -36,7 +35,7 @@ class SignupForm extends React.Component {
     }
 
     isValidassword(password, rePassword) {
-        if (password.length >= 6 && rePassword.length >= 6 && password === rePassword) {
+        if (password.length < 6 && rePassword.length < 6 && password === rePassword) {
             return false;
         }
         return true;
