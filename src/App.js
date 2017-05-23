@@ -44,12 +44,29 @@ const RouteWithSubRoute = (route) => (
 );
 
 class App extends React.Component {
+    constructor (props) {
+        super(props);
+        console.log(props);
+
+        this.state = {
+            userLoggedIn: false
+        };
+
+        this.onUserStateChange = this.onUserStateChange.bind(this);
+    }
+
+    onUserStateChange (userState) {
+        this.setState({
+            userLoggedIn: userState
+        });
+    }
+
     render () {
         const history = createBrowserHistory();
         return (
             <Router history={history}>
                 <div>
-                    <NavigationBar />
+                    <NavigationBar userLoggedIn={this.state.userLoggedIn} loginStateHandler={this.onUserStateChange}/>
 
                     {/*<div className="content">*/}
                     {/*{routes.map((route, i) => (*/}
@@ -59,10 +76,18 @@ class App extends React.Component {
 
                     <div className="container">
                         <Switch>
-                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/" render={() => {
+                                return (this.state.userLoggedIn ? <Home/> : <div>Not logged in</div>);
+                            }}/>
                             <Route path="/plan" component={Plan}/>
                             <Route path="/team" component={Team}/>
-                            <Route exact path="/signin" component={LoginForm}/>
+                            <Route exact path="/signin" render={() => {
+                                return <LoginForm handleLoginState={this.onUserStateChange}/>;
+                            }}/>
+                            <Route exact path="/signout" render={() => {
+                                this.setState({userLoggedIn: false});
+                                // return <LoginForm loginHandler={this.handleUserLogin}/>;
+                            }}/>
                         </Switch>
                     </div>
                 </div>

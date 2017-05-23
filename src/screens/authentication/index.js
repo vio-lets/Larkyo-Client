@@ -2,9 +2,12 @@ import React from 'react';
 import { LoginPage } from './components';
 
 class Authentication extends React.Component {
+    constructor (props) {
+        super(props);
+    }
     render () {
         return (
-            <LoginPage/>
+            <LoginPage handleLoginState={this.props.handleLoginState}/>
         );
     }
 }
