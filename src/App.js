@@ -4,6 +4,11 @@ import Home from './screens/home';
 import LoginForm from './screens/authentication';
 import { NavigationBar } from './components';
 import createBrowserHistory from 'history/createBrowserHistory';
+import TeamCreate from './screens/team/TeamCreate/index.js';
+import TeamPage from './screens/team/TeamPage/index.js';
+import MyTeam from './screens/team/MyTeam/index.js';
+
+
 
 class Plan extends React.Component {
     render () {
@@ -15,15 +20,15 @@ class Plan extends React.Component {
     }
 }
 
-class Team extends React.Component {
-    render () {
-        return (
-            <div>
-                <h1>This is Team page</h1>
-            </div>
-        );
-    }
-}
+// class Team extends React.Component {
+//     render () {
+//         return (
+//             <div>
+//                 <h1>This is Team page</h1>
+//             </div>
+//         );
+//     }
+// }
 
 const routes = [
     {
@@ -49,7 +54,7 @@ class App extends React.Component {
         console.log(props);
 
         this.state = {
-            userLoggedIn: false
+            userLoggedIn: true
         };
 
         this.onUserStateChange = this.onUserStateChange.bind(this);
@@ -80,7 +85,7 @@ class App extends React.Component {
                                 return (this.state.userLoggedIn ? <Home/> : <div>Not logged in</div>);
                             }}/>
                             <Route path="/plan" component={Plan}/>
-                            <Route path="/team" component={Team}/>
+                            {/*<Route path="/team" component={Team}/>*/}
                             <Route exact path="/signin" render={() => {
                                 return <LoginForm handleLoginState={this.onUserStateChange}/>;
                             }}/>
@@ -88,6 +93,12 @@ class App extends React.Component {
                                 this.setState({userLoggedIn: false});
                                 // return <LoginForm loginHandler={this.handleUserLogin}/>;
                             }}/>
+                            <Route path="/teamCreate" component={TeamCreate}/>
+                            <Route path="/teamPage" component={TeamPage}/>
+                            <Route path="/myTeam" component={MyTeam}/>
+
+
+
                         </Switch>
                     </div>
                 </div>

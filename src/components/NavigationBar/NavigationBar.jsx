@@ -3,6 +3,10 @@ import { withRouter } from 'react-router-dom';
 import { clearToken } from './../../services';
 import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import './styles.css';
+import * as ReactBootstrap from 'react-bootstrap';
+import {Link} from 'react-router-dom';
+
+
 
 class NavigationBar extends React.Component {
     constructor (...args) {
@@ -32,6 +36,12 @@ class NavigationBar extends React.Component {
     }
 
     render () {
+        let Navbar = ReactBootstrap.Navbar;
+        let Nav = ReactBootstrap.Nav;
+        let NavItem = ReactBootstrap.NavItem;
+        let NavDropdown = ReactBootstrap.NavDropdown;
+        let MenuItem = ReactBootstrap.MenuItem;
+
         const signOutButton =
             <NavItem>
                 <Button bsStyle="info" className="navbar-btn"
@@ -69,7 +79,17 @@ class NavigationBar extends React.Component {
                         }
                         {
                             this.props.userLoggedIn &&
-                            <NavItem eventKey="/team">Team</NavItem>
+                            <NavDropdown eventKey={3} title="Team" id="basic-nav-dropdown">
+                                <MenuItem eventKey={3.1}>
+                                    <Link to="/teamCreate">Team Create</Link>
+                                </MenuItem>
+                                <MenuItem eventKey={3.2}>
+                                    <Link to="/MyTeam">My Team</Link>
+                                </MenuItem>
+                                <MenuItem eventKey={3.3}>
+                                    <Link to="/teamPage">Teams</Link>
+                                </MenuItem>
+                            </NavDropdown>
                         }
                     </Nav>
                     <Nav pullRight className="customNavItems" style={{padding: '0px'}}>
