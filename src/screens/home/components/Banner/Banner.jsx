@@ -8,9 +8,9 @@ class Banner extends React.Component {
         return (
             <div className="container">
                 <Jumbotron>
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <h1>Welcome to Larkyo</h1>
-                    <p>This area will be replaced by a video I suppose</p>
+
+                    <h1>Welcome to Larkyo!</h1>
+                    <p>What do you want to do today?</p>
                 </Jumbotron>
             </div>
         );
