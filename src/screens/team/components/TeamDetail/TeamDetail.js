@@ -31,7 +31,6 @@ export default class TeamDetail extends React.Component {
     render() {
         return (
             <div className="teamDetailPage">
-                <h2>Team Details</h2>
                 <div className="header">
                     <div className="searchNavbar">
                         <nav className="navbar navbar-default">
@@ -100,7 +99,7 @@ export default class TeamDetail extends React.Component {
                         <tbody>
                         {this.state.teamDetail.members.map(
                             each => {return(
-                                <tr>
+                                <tr key={each.id}>
                                     <td>#{each.id}</td>
                                     <td>{each.name}</td>
                                     <td>{each.role}</td>

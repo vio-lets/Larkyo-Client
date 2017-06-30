@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.css';
+import EachTeamItem from '../EachTeamItem/EachTeamItem.jsx'
 
 
 let teamDataFromAPI = {"teams":[
@@ -19,32 +20,24 @@ export default class MyTeam extends React.Component {
 
     constructor(props){
         super(props);
-        this.goToDetail = this.goToDetail.bind(this);
+        this.handleClickDetail = this.handleClickDetail.bind(this);
         this.state = {
             data:teamDataFromAPI
         }
     }
 
-    goToDetail(){
+    handleClickDetail(){
         alert("go to detail page");
     }
 
     render() {
         return (
             <div className="myTeamPage">
-                <h2>My Teams</h2>
                 <h4> You are currently in the following teams:</h4>
                 <div className="teamsDisplay">
                     {this.state.data.teams.map(each => {
                         return(
-                            <div className="eachTeam">
-                                <p className="teamID">#{each.id}</p>
-                                <p className="teamName">{each.name}</p>
-                                <ul className="nav navbar-nav links">
-                                    <li><a href="#" onClick={this.goToDetail}>Details</a></li>
-                                </ul>
-                                <h5 className="teamDescription">{each.description}</h5>
-                            </div>
+                            <EachTeamItem id={each.id} name={each.name} description={each.description} clickDetailCallBack={this.handleClickDetail} key={each.id}/>
                         )
                     })}
                 </div>

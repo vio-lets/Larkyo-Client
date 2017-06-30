@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.css';
+import EachTeamItem from '../EachTeamItem/EachTeamItem.jsx'
 
 let teamDataFromAPI = {"teams":[
     {"id":1, "name":"Jesse's Team", "description":"This is Jesse's team. Welcome everyone"},
@@ -18,23 +19,23 @@ export default class JoinTeam extends React.Component {
 
     constructor(props){
         super(props);
-        JoinTeam.doSearch = JoinTeam.doSearch.bind(this);
-        JoinTeam.joinTeam = JoinTeam.joinTeam.bind(this);
-        JoinTeam.goToDetail = JoinTeam.goToDetail.bind(this);
+        this.doSearch = this.doSearch.bind(this);
+        this.handleClickJoin = this.handleClickJoin.bind(this);
+        this.handleClickDetail = this.handleClickDetail.bind(this);
         this.state = {
             data:teamDataFromAPI,
             searchMethod:'Search Team'
         }
     }
 
-    static goToDetail(){
+    handleClickDetail(){
         alert("go to detail page");
     }
 
-    static doSearch(){
+    doSearch(){
         alert("Search from API?");
     }
-    static joinTeam() {
+    handleClickJoin() {
         alert("Join the team request send to API");
     };
 
@@ -58,7 +59,7 @@ export default class JoinTeam extends React.Component {
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder={this.state.searchMethod}/>
                                     </div>
-                                    <button type="submit" className="btn btn-default" onClick={JoinTeam.doSearch}>Go!</button>
+                                    <button type="submit" className="btn btn-default" onClick={this.doSearch}>Go!</button>
                                 </form>
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><Link to="/teamCreate">Create New Team</Link></li>
@@ -72,15 +73,7 @@ export default class JoinTeam extends React.Component {
                 <div className="teamsDisplay">
                     {this.state.data.teams.map(each => {
                         return(
-                            <div className="eachTeam">
-                                <p className="teamID"> #{each.id} </p>
-                                <p className="teamName">{each.name}</p>
-                                <ul className="nav navbar-nav links">
-                                    <li><a href="#" onClick={JoinTeam.goToDetail}>Details</a></li>
-                                    <li><a href="#" onClick={JoinTeam.joinTeam}>Join</a></li>
-                                </ul>
-                                <h5 className="teamDescription">{each.description}</h5>
-                            </div>
+                            <EachTeamItem id={each.id} name={each.name} description={each.description} clickDetailCallBack={this.handleClickDetail} clickJoinCallBack={this.handleClickJoin} key={each.id}/>
                         )
                     })}
                 </div>
