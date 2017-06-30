@@ -4,9 +4,6 @@ import { clearToken } from './../../services';
 import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 import './styles.css';
 import * as ReactBootstrap from 'react-bootstrap';
-import {Link} from 'react-router-dom';
-
-
 
 class NavigationBar extends React.Component {
     constructor (...args) {
@@ -79,17 +76,32 @@ class NavigationBar extends React.Component {
                         }
                         {
                             this.props.userLoggedIn &&
-                            <NavDropdown eventKey={3} title="Team" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>
-                                    <Link to="/teamCreate">Team Create</Link>
-                                </MenuItem>
-                                <MenuItem eventKey={3.2}>
-                                    <Link to="/MyTeam">My Team</Link>
-                                </MenuItem>
-                                <MenuItem eventKey={3.3}>
-                                    <Link to="/teamPage">Teams</Link>
-                                </MenuItem>
-                            </NavDropdown>
+                            <NavItem eventKey="/profile">Profile</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/createTeam">Create a Team</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/joinTeam">Join a Team</NavItem>
+
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/findPeople">Find People</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/findThings">Find Things to Do</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/findPlace">Find Place to Go</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
+                            <NavItem eventKey="/planTrip">Plan a Trip</NavItem>
                         }
                     </Nav>
                     <Nav pullRight className="customNavItems" style={{padding: '0px'}}>
