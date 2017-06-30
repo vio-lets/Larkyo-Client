@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles.css';
+import './style.css';
 
 
-export default class TeamCreate extends React.Component {
+export default class CreateTeam extends React.Component {
     constructor(props){
         super(props);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -54,7 +54,7 @@ export default class TeamCreate extends React.Component {
 
     render() {
         return (
-            <div className="addTeamPage">
+            <div className="createTeamContainer">
                 <h2>Create New Team</h2>
                 <form className="addTeamForm" >
                     <div className="form-group">

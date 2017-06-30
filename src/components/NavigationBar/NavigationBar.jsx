@@ -80,12 +80,7 @@ class NavigationBar extends React.Component {
                         }
                         {
                             this.props.userLoggedIn &&
-                            <NavItem eventKey="/createTeam">Create a Team</NavItem>
-                        }
-                        {
-                            this.props.userLoggedIn &&
-                            <NavItem eventKey="/joinTeam">Join a Team</NavItem>
-
+                            <NavItem eventKey="/team">Team</NavItem>
                         }
                         {
                             this.props.userLoggedIn &&

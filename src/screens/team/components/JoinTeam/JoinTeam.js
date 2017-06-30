@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles.css';
+import './style.css';
 
 let teamDataFromAPI = {"teams":[
     {"id":1, "name":"Jesse's Team", "description":"This is Jesse's team. Welcome everyone"},
@@ -14,13 +14,13 @@ let teamDataFromAPI = {"teams":[
     {"id":9, "name":"Randy's Team", "description":"This is Randy's team. Welcome everyone"}
 ]};
 
-export default class TeamPage extends React.Component {
+export default class JoinTeam extends React.Component {
 
     constructor(props){
         super(props);
-        TeamPage.doSearch = TeamPage.doSearch.bind(this);
-        TeamPage.joinTeam = TeamPage.joinTeam.bind(this);
-        TeamPage.goToDetail = TeamPage.goToDetail.bind(this);
+        JoinTeam.doSearch = JoinTeam.doSearch.bind(this);
+        JoinTeam.joinTeam = JoinTeam.joinTeam.bind(this);
+        JoinTeam.goToDetail = JoinTeam.goToDetail.bind(this);
         this.state = {
             data:teamDataFromAPI,
             searchMethod:'Search Team'
@@ -41,8 +41,6 @@ export default class TeamPage extends React.Component {
     render() {
         return (
             <div className="teamPage">
-                <h2>Teams</h2>
-
                 <div className="searchNavbar">
                     <nav className="navbar navbar-default">
                         <div className="container-fluid">
@@ -60,7 +58,7 @@ export default class TeamPage extends React.Component {
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder={this.state.searchMethod}/>
                                     </div>
-                                    <button type="submit" className="btn btn-default" onClick={TeamPage.doSearch}>Go!</button>
+                                    <button type="submit" className="btn btn-default" onClick={JoinTeam.doSearch}>Go!</button>
                                 </form>
                                 <ul className="nav navbar-nav navbar-right">
                                     <li><Link to="/teamCreate">Create New Team</Link></li>
@@ -78,8 +76,8 @@ export default class TeamPage extends React.Component {
                                 <p className="teamID"> #{each.id} </p>
                                 <p className="teamName">{each.name}</p>
                                 <ul className="nav navbar-nav links">
-                                    <li><a href="#" onClick={TeamPage.goToDetail}>Details</a></li>
-                                    <li><a href="#" onClick={TeamPage.joinTeam}>Join</a></li>
+                                    <li><a href="#" onClick={JoinTeam.goToDetail}>Details</a></li>
+                                    <li><a href="#" onClick={JoinTeam.joinTeam}>Join</a></li>
                                 </ul>
                                 <h5 className="teamDescription">{each.description}</h5>
                             </div>

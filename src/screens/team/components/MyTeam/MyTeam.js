@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../styles.css';
+import './style.css';
 
 
 let teamDataFromAPI = {"teams":[
@@ -15,7 +15,7 @@ let teamDataFromAPI = {"teams":[
     {"id":9, "name":"Randy's Team", "description":"This is Randy's team. Welcome everyone"}
 ]};
 
-export default class MyTeamPage extends React.Component {
+export default class MyTeam extends React.Component {
 
     constructor(props){
         super(props);
@@ -50,7 +50,6 @@ export default class MyTeamPage extends React.Component {
                 </div>
                 <ul className="nav navbar-nav links">
                     <li><Link to="/">Back to Home</Link></li>
-
                 </ul>
             </div>
         );

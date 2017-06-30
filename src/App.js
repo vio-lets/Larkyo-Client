@@ -4,11 +4,7 @@ import Home from './screens/home';
 import LoginForm from './screens/authentication';
 import { NavigationBar } from './components';
 import createBrowserHistory from 'history/createBrowserHistory';
-import TeamCreate from './screens/team/TeamCreate/index.js';
-import TeamPage from './screens/team/TeamPage/index.js';
-import MyTeam from './screens/team/MyTeam/index.js';
-
-
+import Team from './screens/team/index';
 
 class Plan extends React.Component {
     render () {
@@ -83,9 +79,7 @@ class App extends React.Component {
                                 this.setState({userLoggedIn: false});
                                 // return <LoginForm loginHandler={this.handleUserLogin}/>;
                             }}/>
-                            <Route path="/teamCreate" component={TeamCreate}/>
-                            <Route path="/teamPage" component={TeamPage}/>
-                            <Route path="/myTeam" component={MyTeam}/>
+                            <Route path="/team" component={Team}/>
 
 
 
