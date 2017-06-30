@@ -2,7 +2,6 @@ import React from 'react';
 import './style.css';
 
 export default class EachTeamItem extends React.Component {
-
     render () {
         return (
             <div className="eachTeam" key={this.props.id}>
@@ -13,11 +12,9 @@ export default class EachTeamItem extends React.Component {
                     {
                         this.props.clickJoinCallBack === undefined ? null : <li><a href="#" onClick={this.props.clickJoinCallBack}>Join</a></li>
                     }
-                    {/*<li><a href="#" onClick={this.props.clickJoinCallBack}>Join</a></li>*/}
                 </ul>
                 <h5 className="teamDescription">{this.props.description}</h5>
             </div>
-        )
-        ;
+        );
     }
 }

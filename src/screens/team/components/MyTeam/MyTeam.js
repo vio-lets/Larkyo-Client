@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import './style.css';
 import EachTeamItem from '../EachTeamItem/EachTeamItem.jsx'
 
-
 let teamDataFromAPI = {"teams":[
     {"id":1, "name":"Jesse's Team", "description":"This is Jesse's team. Welcome everyone"},
     {"id":2, "name":"Clyde's Team", "description":"This is Clyde's team. Welcome everyone"},
@@ -17,7 +16,6 @@ let teamDataFromAPI = {"teams":[
 ]};
 
 export default class MyTeam extends React.Component {
-
     constructor(props){
         super(props);
         this.handleClickDetail = this.handleClickDetail.bind(this);

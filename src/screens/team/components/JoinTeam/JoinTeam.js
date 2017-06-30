@@ -79,7 +79,6 @@ export default class JoinTeam extends React.Component {
                 </div>
                 <ul className="nav navbar-nav links">
                     <li><Link to="/">Back to Home</Link></li>
-
                 </ul>
             </div>
         );

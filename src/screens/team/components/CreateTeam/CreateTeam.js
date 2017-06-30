@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.css';
 
-
 export default class CreateTeam extends React.Component {
     constructor(props){
         super(props);
