@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './style.css';
+import './JoinTeam.css';
 import EachTeamItem from '../EachTeamItem/EachTeamItem.jsx'
 
 let teamDataFromAPI = {"teams":[
@@ -22,6 +22,10 @@ export default class JoinTeam extends React.Component {
         this.doSearch = this.doSearch.bind(this);
         this.handleClickJoin = this.handleClickJoin.bind(this);
         this.handleClickDetail = this.handleClickDetail.bind(this);
+        this.handleCreateNewTeamClicked = this.handleCreateNewTeamClicked.bind(this);
+        this.handleMyTeamClicked = this.handleMyTeamClicked.bind(this);
+        this.handleSearchByIdClicked = this.handleSearchByIdClicked.bind(this);
+        this.handleSearchByNameClicked = this.handleSearchByNameClicked.bind(this);
         this.state = {
             data:teamDataFromAPI,
             searchMethod:'Search Team'
@@ -29,16 +33,27 @@ export default class JoinTeam extends React.Component {
     }
 
     handleClickDetail(){
-        alert("go to detail page");
+        this.props.handleRoute("TeamDetail");
     }
-
     doSearch(){
         alert("Search from API?");
     }
     handleClickJoin() {
         alert("Join the team request send to API");
     };
-
+    handleCreateNewTeamClicked(){
+        this.props.handleRoute("CreateTeam");
+    }
+    handleMyTeamClicked(){
+        this.props.handleRoute("MyTeam");
+    }
+    handleSearchByIdClicked(){
+        this.setState({searchMethod:"Search by ID"})
+    }
+    handleSearchByNameClicked(){
+        this.setState({searchMethod:"Search by Name"})
+    }
+    
     render() {
         return (
             <div className="teamPage">
@@ -50,8 +65,8 @@ export default class JoinTeam extends React.Component {
                                     <li className="dropdown">
                                         <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Search By <span className="caret"/></a>
                                         <ul className="dropdown-menu">
-                                            <li><a id="searchById" href="#">Team ID</a></li>
-                                            <li><a id="searchByName" href="#">Team Name</a></li>
+                                            <li><a id="searchById" href="#" onClick={this.handleSearchByIdClicked}>Team ID</a></li>
+                                            <li><a id="searchByName" href="#" onClick={this.handleSearchByNameClicked}>Team Name</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -59,11 +74,11 @@ export default class JoinTeam extends React.Component {
                                     <div className="form-group">
                                         <input type="text" className="form-control" placeholder={this.state.searchMethod}/>
                                     </div>
-                                    <button type="submit" className="btn btn-default" onClick={this.doSearch}>Go!</button>
+                                    <button type="button" className="btn btn-default" onClick={this.doSearch}>Go!</button>
                                 </form>
                                 <ul className="nav navbar-nav navbar-right">
-                                    <li><Link to="/teamCreate">Create New Team</Link></li>
-                                    <li><Link to="/myTeam">My Team</Link></li>
+                                    <li><a href="#" onClick={this.handleCreateNewTeamClicked}>Create New Team</a></li>
+                                    <li><a href="#" onClick={this.handleMyTeamClicked}>My Team</a></li>
                                 </ul>
                             </div>
                         </div>

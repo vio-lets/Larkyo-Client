@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './style.css';
+import './MyTeam.css';
 import EachTeamItem from '../EachTeamItem/EachTeamItem.jsx'
 
 let teamDataFromAPI = {"teams":[
@@ -25,7 +25,7 @@ export default class MyTeam extends React.Component {
     }
 
     handleClickDetail(){
-        alert("go to detail page");
+        this.props.handleRoute("TeamDetail");
     }
 
     render() {

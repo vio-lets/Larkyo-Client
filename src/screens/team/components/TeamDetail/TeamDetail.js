@@ -1,10 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './style.css';
+import './TeamDetail.css';
 
 export default class TeamDetail extends React.Component {
     constructor(props){
         super(props);
+        this.handleCreateNewTeamClicked = this.handleCreateNewTeamClicked.bind(this);
+        this.handleMyTeamClicked = this.handleMyTeamClicked.bind(this);
         this.state = {
             teamDetail:{
                 id: 1,
@@ -26,6 +28,13 @@ export default class TeamDetail extends React.Component {
                 notification: "The upcoming event is updated. Our next destination is the moon. Please prepare your camera and the Nindendo switch. It will be a long trip..."
             }
         }
+    }
+
+    handleCreateNewTeamClicked(){
+        this.props.handleRoute("CreateTeam");
+    };
+    handleMyTeamClicked(){
+        this.props.handleRoute("MyTeam");
     }
 
     render() {
@@ -57,8 +66,8 @@ export default class TeamDetail extends React.Component {
                                         </li>
                                     </ul>
                                     <ul className="nav navbar-nav navbar-right">
-                                        <li><a href="../AddNewTeamPage/index.html">Create New Team</a></li>
-                                        <li><a href="../MyTeamsPage/index.html">My Team</a></li>
+                                        <li><a href="#" onClick={this.handleCreateNewTeamClicked}>Create New Team</a></li>
+                                        <li><a href="#" onClick={this.handleMyTeamClicked}>My Team</a></li>
                                     </ul>
                                 </div>
                             </div>

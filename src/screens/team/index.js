@@ -1,9 +1,6 @@
 import React from 'react';
-import CreateTeam from './components/CreateTeam/CreateTeam'
-import JoinTeam from './components/JoinTeam/JoinTeam'
-import MyTeam from './components/MyTeam/MyTeam'
-import TeamDetail from './components/TeamDetail/TeamDetail'
-import './styles.css';
+import { CreateTeam, JoinTeam, MyTeam, TeamDetail } from './components';
+import './index.css';
 
 export default class Team extends React.Component {
     constructor(...args){
@@ -12,6 +9,7 @@ export default class Team extends React.Component {
         this.handleMyTeam = this.handleMyTeam.bind(this);
         this.handleTeamDetail = this.handleTeamDetail.bind(this);
         this.handleJoinTeam = this.handleJoinTeam.bind(this);
+        this.redirectPage = this.redirectPage.bind(this);
         this.state = {
             selectedPage:"JoinTeam"
         }
@@ -20,19 +18,19 @@ export default class Team extends React.Component {
     renderPage() {
         switch(this.state.selectedPage){
             case "JoinTeam":
-                return(<JoinTeam/>);
+                return(<JoinTeam handleRoute={this.redirectPage}/>);
                 break;
             case "MyTeam":
-                return(<MyTeam/>);
+                return(<MyTeam handleRoute={this.redirectPage}/>);
                 break;
             case "CreateTeam":
-                return(<CreateTeam/>);
+                return(<CreateTeam handleRoute={this.redirectPage}/>);
                 break;
             case "TeamDetail":
-                return(<TeamDetail/>);
+                return(<TeamDetail handleRoute={this.redirectPage}/>);
                 break;
             default:
-                return(<JoinTeam/>);
+                return(<JoinTeam handleRoute={this.redirectPage}/>);
         }
     };
 
@@ -47,6 +45,9 @@ export default class Team extends React.Component {
     }
     handleJoinTeam() {
         this.setState({selectedPage:"JoinTeam"})
+    }
+    redirectPage(pageName){
+        this.setState({selectedPage:pageName})
     }
 
     render () {

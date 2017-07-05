@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.css';
+import './EachTeamItem.css';
 
 export default class EachTeamItem extends React.Component {
     render () {

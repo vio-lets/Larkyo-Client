@@ -24,6 +24,9 @@
     font-weight:bold;
     margin-left: 30px;
 }
+.description{
+    margin-left: 200px;
+}
 .desiredSize{
     float: left;
     margin-right: 40px;
