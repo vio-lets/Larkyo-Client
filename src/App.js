@@ -6,6 +6,7 @@ import { NavigationBar } from './components';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Team from './screens/team/index';
 import Plan from './screens/plan/index';
+import Profile from './screens/profile/index';
 
 const RouteWithSubRoute = (route) => (
     <Route path={route.path} exact={route.exact} render={props => (
@@ -51,6 +52,7 @@ class App extends React.Component {
                             }}/>
                             <Route path="/team" component={Team}/>
                             <Route path="/plan" component={Plan}/>
+                            <Route path="/profile" component={Profile}/>
 
                         </Switch>
                     </div>
