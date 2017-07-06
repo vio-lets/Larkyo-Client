@@ -1,0 +1,64 @@
+.border {
+    border: solid 1px black;
+}
+.plan-summary{
+    float: left;
+    min-height: 55px;
+}
+.no-padding {
+    padding: 0;
+}
+.teamItem
+{
+    box-shadow: 0px 0px 1px 0px black;
+    margin-bottom: 10px;
+    height: 200px;
+    overflow: hidden;
+}
+.durationBlock
+{
+    width: 70px;
+}
+.destinationBlock
+{
+    width: calc(100% - 70px);
+    border-left: solid 1px;
+}
+.duration {
+    display: block;
+}
+.duration:first-child
+{
+    font-size: 20px;
+}
+.duration:last-child
+{
+
+}
+
+.dest {
+    display: inline-block;
+    padding: 0 4px;
+    font-size: 11px;
+}
+.introduction
+{
+    font-size: smaller;
+    overflow: hidden;
+    height: 70px;
+}
+.teamBtnGroup
+{
+
+}
+.historyMark
+{
+    width: 125px;
+    height: 80px;
+    z-index: 1;
+    position: absolute;
+    right: 0px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("http://www.bartsbookshelf.co.uk/wp-content/uploads/2008/07/donepng.png");
+}

@@ -1,0 +1,23 @@
+.border {
+    border: solid 1px black;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.planTemplate
+{
+    list-style: none;
+}
+.planTemplate > li {
+
+}
+
+.planDestination
+{
+    list-style: none;
+}
+.planDestination > li:before{
+
+}

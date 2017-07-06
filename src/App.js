@@ -5,16 +5,7 @@ import LoginForm from './screens/authentication';
 import { NavigationBar } from './components';
 import createBrowserHistory from 'history/createBrowserHistory';
 import Team from './screens/team/index';
-
-class Plan extends React.Component {
-    render () {
-        return (
-            <div>
-                <h1>This is Plan page</h1>
-            </div>
-        );
-    }
-}
+import Plan from './screens/plan/index';
 
 const RouteWithSubRoute = (route) => (
     <Route path={route.path} exact={route.exact} render={props => (
@@ -59,6 +50,7 @@ class App extends React.Component {
                                 this.setState({userLoggedIn: false});
                             }}/>
                             <Route path="/team" component={Team}/>
+                            <Route path="/plan" component={Plan}/>
 
                         </Switch>
                     </div>
