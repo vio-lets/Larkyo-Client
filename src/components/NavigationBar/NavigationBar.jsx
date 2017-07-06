@@ -15,6 +15,8 @@ class NavigationBar extends React.Component {
         this.register = this.register.bind(this);
         this.onLogoutBtnClick = this.onLogoutBtnClick.bind(this);
         this.navigate = this.navigate.bind(this);
+        this.handleSearchClicked = this.handleSearchClicked.bind(this);
+
     }
 
     register () {
@@ -30,6 +32,10 @@ class NavigationBar extends React.Component {
         clearToken();
         this.setState({activeKey: '/'});
         this.props.history.push('/');
+    }
+
+    handleSearchClicked(){
+        this.navigate('/search');
     }
 
     render () {
@@ -105,6 +111,12 @@ class NavigationBar extends React.Component {
                                 ? signOutButton
                                 : signInButton
                         }
+                    </Nav>
+                    <Nav pullRight className="customNavItems" style={{padding: '0px', 'marginTop':'8px', 'marginBottom':'0px', 'marginRight':'10px'}}>
+                        <NavItem eventKey="/search">
+                            <input type="text" className="form-control" placeholder="Search" onClick={this.handleSearchClicked}/>
+                        </NavItem>;
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
