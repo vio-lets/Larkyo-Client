@@ -4,7 +4,9 @@ import './PeopleSearch.css';
 export default class PeopleSearch extends React.Component {
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            collapse: true,
+        }
     }
 
     render() {

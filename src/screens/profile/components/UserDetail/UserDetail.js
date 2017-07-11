@@ -22,7 +22,8 @@ export default class UserDetail extends React.Component {
                             </div>
                             <div className="panel-body">
                                 <div className="row">
-                                    <div className="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" className="img-circle img-responsive"/>
+                                    <div className="col-md-3 col-lg-3 " align="center">
+                                        <a href="http://placeholder.com"><img src="http://via.placeholder.com/72x72"/></a>
                                     </div>
                                     <div className=" col-md-9 col-lg-9 ">
                                         <table className="table table-user-information">

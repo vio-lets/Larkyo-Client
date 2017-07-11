@@ -1,10 +1,15 @@
 import React from 'react';
 import './UserProfile.css';
+import GoogleMap from 'google-map-react';
 
 export default class UserProfile extends React.Component {
     constructor() {
         super();
         this.handleUserDetailClicked = this.handleUserDetailClicked.bind(this);
+        this.state={
+            center:{lat:-36.8485,lng:174.7633},
+            zoom:11
+        }
     }
 
     handleUserDetailClicked(){
@@ -14,44 +19,14 @@ export default class UserProfile extends React.Component {
     render() {
         return (
             <div className="userProfileContainer">
-                <div className="row">
+                <div className="row headPanel">
                     <div className="col-md-12">
-                        <img src = "https://www.w3schools.com/css/img_lights.jpg" alt="profilePics" style={{'width':'100%','height':'300'}}/>
+                        <a href="http://placeholder.com"><img src="http://via.placeholder.com/848x300"/></a>
                     </div>
                 </div>
 
                 <div className="row">
-                    <div className="col-md-4">
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="panel panel-default leftBar">
-                                    <img src="https://html-online.com/img/witch.png" className="img-circle" alt="photo" width="170" height="170"/>
-                                        <div className="panel-heading">
-                                            <h5 className="panel-title">MM123 <br></br>
-                                                Female<br></br>
-                                                New Zealand<br></br>
-                                                123@gmm.com</h5>
-                                        </div>
-                                        <div className="panel-body">
-                                            <ul className="list-group">
-                                                <li className="list-group-item"><a href="">credit: 300</a></li>
-                                                <li className="list-group-item"><a href="#">Photographer: 12times</a></li>
-                                                <li className="list-group-item"><a href="#">Cook: 3times</a></li>
-                                                <li className="list-group-item"><a href="#">Driver: 1times</a></li>
-                                                <li className="list-group-item"><a href="#" onClick={this.handleUserDetailClicked}>User Detail</a></li>
-                                                <text>Plan involved: </text>
-                                                <li className="list-group-item"><a href="#">Amazing trip of 3.03 room</a></li>
-                                                <li className="list-group-item"><a href="#">Best tour of Panmure Library</a></li>
-                                                <text>Wish List </text>
-                                                <li className="list-group-item"><a href="#">3 days of Hamilton</a></li>
-                                                <li className="list-group-item"><a href="#">North Island bike one month adventure </a></li>
-                                            </ul>
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-md-8">
+                    <div className="col-md-12">
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="panel panel-default">
@@ -64,6 +39,11 @@ export default class UserProfile extends React.Component {
                                             <p>Auckland - LA - Las Vegas - NYC - Auckland</p>
                                             <p>Description</p>
                                             <div className="mapContainer" id="map">
+                                                <GoogleMap
+                                                    apiKey={"AIzaSyDyfeahq48UnOjINJCxP05FzsXQExdOoLo"}// set if you need stats etc ...
+                                                    center={this.state.center}
+                                                    zoom={this.state.zoom}>
+                                                </GoogleMap>
                                             {/*<script>*/}
                                                 {/*function initMap() {*/}
                                                 {/*var uluru = {lat: -25.363, lng: 131.044};*/}
@@ -80,10 +60,6 @@ export default class UserProfile extends React.Component {
                                             {/*<script async defer*/}
                                                     {/*src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAPrjZ0gaLVnd3x6Sa7DX-EKDZpBFcgkc&callback=initMap">*/}
                                             {/*</script>*/}
-                                                <div className="temp">
-                                                    <h2>Google map suppose to be here!</h2>
-                                                    <h2>However we should discuss about the key before we implement it.</h2>
-                                                </div>
                                             </div>
                                         </ul>
                                     </div>

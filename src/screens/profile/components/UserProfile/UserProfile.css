@@ -1,12 +1,10 @@
-.temp{
-    border: 1px solid;
-    color: red;
-    height:100%;
-}
 .mapContainer{
     height:235px;
     width:100%;
 }
 .leftBar{
     font-size:12px;
+}
+.headPanel{
+    margin-top:20px;
 }
