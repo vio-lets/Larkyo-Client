@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const dashboardPlugin = require('webpack-dashboard/plugin');
 
 const BUILD_DIR = path.resolve(__dirname, 'public');
 const SRC_DIR = path.resolve(__dirname, 'src');
@@ -53,11 +54,17 @@ const config = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         // enable HMR globally
+        new webpack.HotModuleReplacementPlugin(),
 
-        new webpack.NamedModulesPlugin(),
         // prints more readable module names in the browser console on HMR updates
+        new webpack.NamedModulesPlugin(),
+
+        // reduces the size of bundle.js
+        new webpack.optimize.UglifyJsPlugin(),
+
+        // enable webpack dashboard
+        new dashboardPlugin(),
     ]
 };
 
