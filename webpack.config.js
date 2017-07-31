@@ -60,11 +60,9 @@ const config = {
         // prints more readable module names in the browser console on HMR updates
         new webpack.NamedModulesPlugin(),
 
-        // reduces the size of bundle.js
-        new webpack.optimize.UglifyJsPlugin(),
+        // reduces the size of bundle.js - 23/07/2017 Clyde - only enable for production mode
+        // new webpack.optimize.UglifyJsPlugin(),
 
-        // enable webpack dashboard
-        new dashboardPlugin(),
     ]
 };
 

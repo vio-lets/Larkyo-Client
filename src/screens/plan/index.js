@@ -11,15 +11,12 @@ export default class Plan extends React.Component {
         this.handlePlanPage = this.handlePlanPage.bind(this);
         this.redirectPage = this.redirectPage.bind(this);
         this.state = {
-            selectedPage:"PlanPage"
+            selectedPage:"ActivityPage"
         }
     }
 
     renderPage() {
         switch(this.state.selectedPage){
-            case "PlanPage":
-                return(<PlanPage handleRoute={this.redirectPage}/>);
-                break;
             case "MyPlan":
                 return(<MyPlan handleRoute={this.redirectPage}/>);
                 break;

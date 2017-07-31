@@ -78,6 +78,10 @@ class NavigationBar extends React.Component {
                         <NavItem eventKey="/">Home</NavItem>
                         {
                             this.props.userLoggedIn &&
+                            <NavItem eventKey="/Activity">Things&Todo</NavItem>
+                        }
+                        {
+                            this.props.userLoggedIn &&
                             <NavItem eventKey="/plan">Plan</NavItem>
                         }
                         {
@@ -87,22 +91,6 @@ class NavigationBar extends React.Component {
                         {
                             this.props.userLoggedIn &&
                             <NavItem eventKey="/team">Team</NavItem>
-                        }
-                        {
-                            this.props.userLoggedIn &&
-                            <NavItem eventKey="/findPeople">Find People</NavItem>
-                        }
-                        {
-                            this.props.userLoggedIn &&
-                            <NavItem eventKey="/findThings">Find Things to Do</NavItem>
-                        }
-                        {
-                            this.props.userLoggedIn &&
-                            <NavItem eventKey="/findPlace">Find Place to Go</NavItem>
-                        }
-                        {
-                            this.props.userLoggedIn &&
-                            <NavItem eventKey="/planTrip">Plan a Trip</NavItem>
                         }
                     </Nav>
                     <Nav pullRight className="customNavItems" style={{padding: '0px'}}>

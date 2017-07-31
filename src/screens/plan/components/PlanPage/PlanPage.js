@@ -1,7 +1,7 @@
 import React from 'react';
 import './PlanPage.css';
 
-export default class PlanPage extends React.Component {
+export default class ActivityPage extends React.Component {
     constructor() {
         super();
         this.state = {
