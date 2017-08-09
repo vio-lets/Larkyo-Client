@@ -15,4 +15,12 @@ export class DestinationService{
         }
     }
 
+    getCategoryListQuery() {
+        let url = "/here/getPlacesCategories"
+        try{
+            return axios.get(url);
+        }catch (e){
+            alert(e.message)
+        }
+    }
 }

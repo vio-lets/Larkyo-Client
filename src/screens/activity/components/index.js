@@ -1,4 +1,6 @@
-import DestinationFilter from './DestinationFilter/DestinationFilter.jsx';
+import ActivityFilter from './ActivityFilter/ActivityFilter.jsx';
 import ActivityPage from './ActivityPage/ActivityPage.jsx';
+import ActivityItem from './ActivityItem/ActivityItem.jsx';
 
-export {ActivityPage,DestinationFilter};
+
+export {ActivityPage, ActivityFilter, ActivityItem};

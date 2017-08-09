@@ -1,7 +1,9 @@
 body {
     margin: 0 auto
 }
-
+.border {
+    border: solid 1px black;
+}
 .btn {
     border-radius: 0;
 }
@@ -12,4 +14,8 @@ body {
 .no-margin
 {
     margin: 0;
+}
+.margin-bottom15
+{
+    margin-bottom: 15px;
 }

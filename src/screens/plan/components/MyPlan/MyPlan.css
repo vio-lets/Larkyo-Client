@@ -1,13 +1,9 @@
-.border {
-    border: solid 1px black;
-}
+
 .plan-summary{
     float: left;
     min-height: 55px;
 }
-.no-padding {
-    padding: 0;
-}
+
 .teamItem
 {
     box-shadow: 0px 0px 1px 0px black;

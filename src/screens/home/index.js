@@ -8,10 +8,8 @@ export default class Home extends React.Component {
     render () {
         return (
             <div>
-                <div>
-                    <Banner />
-                    <Destinations/>
-                </div>
+                <Banner />
+                <Destinations/>
             </div>
         );
     }
