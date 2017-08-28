@@ -1,12 +1,13 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { clearToken } from './../../services';
-import { Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
+import {withRouter} from 'react-router-dom';
+import {clearToken} from './../../services';
+import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap';
 import './styles.css';
-import * as ReactBootstrap from 'react-bootstrap';
+// import * as ReactBootstrap from 'react-bootstrap';
+import InventoryButton from './../Inventory/InventoryButton.jsx'
 
 class NavigationBar extends React.Component {
-    constructor (...args) {
+    constructor(...args) {
         super(...args);
         this.state = {
             activeKey: '/',
@@ -19,31 +20,31 @@ class NavigationBar extends React.Component {
 
     }
 
-    register () {
+    register() {
         alert('Register clicked');
     }
 
-    navigate (eventKey) {
+    navigate(eventKey) {
         this.setState({activeKey: eventKey});
         this.props.history.push(eventKey);
     }
 
-    onLogoutBtnClick () {
+    onLogoutBtnClick() {
         clearToken();
         this.setState({activeKey: '/'});
         this.props.history.push('/');
     }
 
-    handleSearchClicked(){
+    handleSearchClicked() {
         this.navigate('/search');
     }
 
-    render () {
-        let Navbar = ReactBootstrap.Navbar;
-        let Nav = ReactBootstrap.Nav;
-        let NavItem = ReactBootstrap.NavItem;
-        let NavDropdown = ReactBootstrap.NavDropdown;
-        let MenuItem = ReactBootstrap.MenuItem;
+    render() {
+        // let Navbar = ReactBootstrap.Navbar;
+        // let Nav = ReactBootstrap.Nav;
+        // let NavItem = ReactBootstrap.NavItem;
+        // let NavDropdown = ReactBootstrap.NavDropdown;
+        // let MenuItem = ReactBootstrap.MenuItem;
 
         const signOutButton =
             <NavItem>
@@ -60,7 +61,9 @@ class NavigationBar extends React.Component {
                     <Button bsStyle="danger" className="navbar-btn"
                             onClick={this.register}><Glyphicon glyph="user"/> Register</Button>
                     <Button bsStyle="info" className="navbar-btn"
-                            onClick={() => {this.navigate('/signin');}}><Glyphicon glyph="log-in"/> Sign
+                            onClick={() => {
+                                this.navigate('/signin');
+                            }}><Glyphicon glyph="log-in"/> Sign
                         In</Button>
                 </ButtonToolbar>
             </NavItem>;
@@ -100,9 +103,12 @@ class NavigationBar extends React.Component {
                                 : signInButton
                         }
                     </Nav>
-                    <Nav pullRight className="customNavItems" style={{padding: '0px', 'marginTop':'8px', 'marginBottom':'0px', 'marginRight':'10px'}}>
+                    <InventoryButton></InventoryButton>
+                    <Nav pullRight className="customNavItems"
+                         style={{padding: '0px', 'marginTop': '8px', 'marginBottom': '0px', 'marginRight': '10px'}}>
                         <NavItem eventKey="/search">
-                            <input type="text" className="form-control" placeholder="Search" onClick={this.handleSearchClicked}/>
+                            <input type="text" className="form-control" placeholder="Search"
+                                   onClick={this.handleSearchClicked}/>
                         </NavItem>;
 
                     </Nav>

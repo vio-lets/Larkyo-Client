@@ -1,7 +1,6 @@
 import React from 'react';
 import './inventoryStyle.css';
 import {DropdownButton} from 'react-bootstrap'
-import {Inventory} from './../../models/Inventory'
 
 export default class Inventory extends React.Component {
 
@@ -19,10 +18,7 @@ export default class Inventory extends React.Component {
     init() {
 
     }
-    onTestClick()
-    {
-        
-    }
+
     handleChange(event) {
         let name = event.target.name;
         let value = event.target.value;
@@ -34,9 +30,7 @@ export default class Inventory extends React.Component {
     render() {
         return (
             <div>
-                <div onClick={this.onTestClick}>
-                    test
-                </div>
+
                 <DropdownButton id="inventory" title="Inventory">
                     <div> item </div>
                 </DropdownButton>
