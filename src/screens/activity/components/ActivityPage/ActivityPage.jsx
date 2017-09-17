@@ -14,8 +14,13 @@ export default class ActivityPage extends React.Component {
         };
         this.onActivityFilterChange = this.onActivityFilterChange.bind(this);
         this.loadgetPopularPlaces = this.loadgetPopularPlaces.bind(this);
+        this.navigate = this.navigate.bind(this);
     }
-
+    navigate(eventKey,param) {
+        console.log(eventKey)
+        this.props.handleRoute(eventKey,param)
+        // this.props.history.push(eventKey);
+    }
     onActivityFilterChange(result) {
         this.setState({
             selectedDestination: result.selectedDestination,
@@ -33,7 +38,7 @@ export default class ActivityPage extends React.Component {
         hereService.postPopularPlacesQuery(postData)
             .then((res) => res.data)
             .then(function (data) {
-                console.log(data)
+
                 that.setState({
                     popularPlacesItemSource:data
                 })
@@ -50,7 +55,7 @@ export default class ActivityPage extends React.Component {
                 <ActivityFilter onFilterChange={this.onActivityFilterChange}/>
                 <h2>Coming Soon!</h2>
                 {this.state.popularPlacesItemSource && this.state.popularPlacesItemSource.map((place,index)=> {
-                    return <ActivityItem key={index} place={place}/>
+                    return <ActivityItem key={index} place={place} navigate={this.navigate}/>
                 })}
             </div>
         )

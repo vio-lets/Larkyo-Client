@@ -1,0 +1,12 @@
+.inventory
+{
+    display: table;
+}
+.inventoryBag
+{
+    position: absolute;
+    width: 400px;
+    color: black;
+    background: white;
+
+}

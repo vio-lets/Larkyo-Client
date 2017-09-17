@@ -10,7 +10,6 @@ import Profile from './screens/profile/index';
 import Search from './screens/search/index';
 import Activity from './screens/activity/index';
 
-
 const RouteWithSubRoute = (route) => (
     <Route path={route.path} exact={route.exact} render={props => (
         <route.component {...props} routes={route.routes}/>

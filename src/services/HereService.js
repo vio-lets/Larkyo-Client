@@ -18,4 +18,15 @@ export class HereService{
             alert(e.message)
         }
     }
+
+    postPopularPlaceDetails(data)
+    {
+        let url = "/here/getPopularPlaceDetails"
+        try{
+            return axios.post(url,data);
+        }catch (e){
+            alert(e.message)
+        }
+
+    }
 }
