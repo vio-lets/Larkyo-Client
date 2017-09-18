@@ -11,7 +11,7 @@ export default class Plan extends React.Component {
         this.handlePlanPage = this.handlePlanPage.bind(this);
         this.redirectPage = this.redirectPage.bind(this);
         this.state = {
-            selectedPage:"ActivityPage"
+            selectedPage:"PlanPage"
         }
     }
 
@@ -59,6 +59,9 @@ export default class Plan extends React.Component {
                             <li className="list-group-item"><a href="#" onClick={this.handlePlanPage}>Plan Page</a></li>
                         </ul>
                     </div>
+
+
+
                 </div>
                 <div className="col-md-9">
                     {this.renderPage()}

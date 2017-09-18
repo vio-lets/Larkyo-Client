@@ -1,12 +1,9 @@
 .inventory
 {
-    display: table;
+    /*display: table;*/
+    /*background: white;*/
 }
-.inventoryBag
+.inventoryItem
 {
-    position: absolute;
-    width: 400px;
-    color: black;
-    background: white;
 
 }

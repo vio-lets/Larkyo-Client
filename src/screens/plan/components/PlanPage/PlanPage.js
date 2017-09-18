@@ -83,7 +83,7 @@ export default class ActivityPage extends React.Component {
             <div className="col-xs-12 col-sm-3">
                 <div className="form-group">
                     <label htmlFor="inputdefault">Duration</label>
-                    <input className="form-control" id="inputdefault" type="number" min="1" max="7" value="7"/>
+                    <input className="form-control" id="inputdefault" type="number" min="1" max="7"/>
                 </div>
             </div>
             <div className="col-xs-12 col-sm-9 no-padding">

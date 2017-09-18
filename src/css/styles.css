@@ -15,7 +15,19 @@ body {
 {
     margin: 0;
 }
+.margin-bottom5
+{
+    margin-bottom: 5px;
+}
 .margin-bottom15
 {
     margin-bottom: 15px;
+}
+.fixed-width-250
+{
+    width: 250px;
+}
+.clickable
+{
+    cursor: pointer;
 }

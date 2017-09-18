@@ -1,23 +1,25 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
 import {clearToken} from './../../services';
-import {Button, ButtonToolbar, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap';
+import {Button, ButtonToolbar, DropdownButton, Glyphicon, Nav, Navbar, NavItem} from 'react-bootstrap';
 import './styles.css';
 // import * as ReactBootstrap from 'react-bootstrap';
-import InventoryButton from './../Inventory/InventoryButton.jsx'
+import Inventory from './../Inventory/Inventory.jsx'
 
 class NavigationBar extends React.Component {
     constructor(...args) {
         super(...args);
         this.state = {
             activeKey: '/',
-            userLoggedIn: this.props.userLoggedIn
+            userLoggedIn: this.props.userLoggedIn,
+            inventoryVisible: true,
+            inventorySize: 0
         };
         this.register = this.register.bind(this);
         this.onLogoutBtnClick = this.onLogoutBtnClick.bind(this);
         this.navigate = this.navigate.bind(this);
         this.handleSearchClicked = this.handleSearchClicked.bind(this);
-
+        this.updateInventorySize = this.updateInventorySize.bind(this);
     }
 
     register() {
@@ -37,6 +39,12 @@ class NavigationBar extends React.Component {
 
     handleSearchClicked() {
         this.navigate('/search');
+    }
+
+    updateInventorySize(size) {
+        this.setState({
+            inventorySize: size
+        })
     }
 
     render() {
@@ -95,7 +103,17 @@ class NavigationBar extends React.Component {
                             this.props.userLoggedIn &&
                             <NavItem eventKey="/team">Team</NavItem>
                         }
+
+
                     </Nav>
+                    {
+                        this.props.userLoggedIn && this.state.inventoryVisible &&
+                        <DropdownButton title={"inventory(" + this.state.inventorySize + ")"} id="inventoryButton">
+                            <div className="fixed-width-250">
+                                <Inventory updateInventorySize={this.updateInventorySize}></Inventory>
+                            </div>
+                        </DropdownButton>
+                    }
                     <Nav pullRight className="customNavItems" style={{padding: '0px'}}>
                         {
                             this.props.userLoggedIn
@@ -103,7 +121,8 @@ class NavigationBar extends React.Component {
                                 : signInButton
                         }
                     </Nav>
-                    <InventoryButton></InventoryButton>
+
+
                     <Nav pullRight className="customNavItems"
                          style={{padding: '0px', 'marginTop': '8px', 'marginBottom': '0px', 'marginRight': '10px'}}>
                         <NavItem eventKey="/search">

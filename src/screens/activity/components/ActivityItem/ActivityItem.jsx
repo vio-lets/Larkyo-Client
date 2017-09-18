@@ -1,15 +1,13 @@
 import React from 'react';
 import './ActivityItem.css';
 import globalState from './../../../../utility/globalState';
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 export default class ActivityItem extends React.Component {
 
     constructor(...args) {
         super(...args);
-        this.state = {
-
-        };
+        this.state = {};
 
         this.handleChange = this.handleChange.bind(this);
         this.returnResult = this.returnResult.bind(this);
@@ -32,19 +30,26 @@ export default class ActivityItem extends React.Component {
 
     }
 
-    onActivityItemClick()
-    {
-        let place = {place: this.props.place};
-        globalState.setGlobalState(place)
+    onActivityItemClick() {
+        let inventoryItem = globalState.getGlobalState('inventory')
+        if (!inventoryItem) inventoryItem = [];
+
+        let index = inventoryItem.findIndex((act)=> {
+            return act.Id == this.props.place.Id
+        })
+        if (index == -1) {
+            inventoryItem.push(this.props.place);
+        }
+        let inventory = {inventory: inventoryItem}
+        globalState.setGlobalState(inventory)
     }
 
     isAllDataLoaded() {
         return true;
     }
 
-    goToDetailPage()
-    {
-        this.props.navigate("ActivityDetailPage",this.props.place)
+    goToDetailPage() {
+        this.props.navigate("ActivityDetailPage", this.props.place)
     }
 
     returnResult() {
@@ -53,7 +58,7 @@ export default class ActivityItem extends React.Component {
 
     render() {
         return (
-            <div className="col-xs-12 border margin-bottom15" >
+            <div className="col-xs-12 border margin-bottom15">
                 {this.props.place.Title}
                 <div className="pull-right">
                     <a className="btn btn-default" onClick={this.onActivityItemClick}>Add to Inventory</a>
