@@ -7,6 +7,8 @@
     "google-map-react": "^0.24.0",
     "react": "^15.5.4",
     "react-bootstrap": "^0.31.0",
+    "react-dnd": "^2.5.1",
+    "react-dnd-html5-backend": "^2.5.3",
     "react-dom": "^15.5.4",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-router": "^4.1.1",
