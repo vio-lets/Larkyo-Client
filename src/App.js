@@ -19,6 +19,7 @@ const RouteWithSubRoute = (route) => (
 class App extends React.Component {
     constructor (props) {
         super(props);
+        //todo change login state to false, hard code set login is true
         this.state = {
             userLoggedIn: true
         };
