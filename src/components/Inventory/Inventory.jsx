@@ -1,7 +1,9 @@
 import React from 'react';
+import { DragSource } from 'react-dnd';
 import './inventoryStyle.css';
 import {DropdownButton} from 'react-bootstrap'
 import globalState from './../../utility/globalState';
+import InventoryItem from './../InvertoryItem/InventoryItem.jsx'
 
 export default class Inventory extends React.Component {
 
@@ -40,7 +42,7 @@ export default class Inventory extends React.Component {
         let activityItemList = globalState.getGlobalState('inventory')
         this.setState({activityItemList: activityItemList})
         localStorage.setItem('inventory', JSON.stringify(activityItemList))
-        // this.props.updateInventorySize(this.state.activityItemList.length)
+         this.props.updateInventorySize(this.state.activityItemList.length)
     }
 
     handleChange(event) {
@@ -56,19 +58,11 @@ export default class Inventory extends React.Component {
         globalState.setGlobalState(activityItemList)
     }
 
-    InventoryItem(item, index)
-    {
-        return <div key={index} className="col-xs-12 margin-bottom5 bg-info">
-            {item.Title} <span className="pull-right clickable" onClick={this.removePlaceFromInventory.bind(this, index)}>X</span>
-        </div>
-    }
-
-
     render() {
         return (
             <div className="inventory">
                 {this.state.activityItemList.map((item, index)=> {
-                    return this.InventoryItem(item, index)
+                    return <InventoryItem key={index} index={index} title={item.Title} onInventoryItemClick={this.removePlaceFromInventory.bind(this, index)}></InventoryItem>
                 })}
             </div>
         )
