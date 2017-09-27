@@ -1,0 +1,31 @@
+diff --git a/src/components/InvertoryItem/InventoryItem.jsx b/src/components/InvertoryItem/InventoryItem.jsx
+index 8596bf5..c9513c1 100644
+--- a/src/components/InvertoryItem/InventoryItem.jsx
++++ b/src/components/InvertoryItem/InventoryItem.jsx
+@@ -41,12 +41,12 @@ function collect(connect, monitor) {
+         // as defined by your `collect` function above:
+         const { isDragging, connectDragSource } = this.props;
+ 
+-        return (
++        return connectDragSource(
+             <div className="col-xs-12 margin-bottom5 bg-info">
+                 {this.props.title} <span className="pull-right clickable" onClick={this.removePlaceFromInventory.bind(this, this.props.index)}>X</span>
+             </div>
+         )
+     }
+ }
+-// InventoryItem = DragSource(Inventory.ITEM,itemSource,collect)(InventoryItem)
++ InventoryItem = DragSource(Inventory.ITEM,itemSource,collect)(InventoryItem)
+ export default InventoryItem;
+diff --git a/src/screens/plan/components/CreatePlan/CreatePlan.js b/src/screens/plan/components/CreatePlan/CreatePlan.js
+index 41810d0..d7d3c86 100644
+--- a/src/screens/plan/components/CreatePlan/CreatePlan.js
++++ b/src/screens/plan/components/CreatePlan/CreatePlan.js
+@@ -28,5 +28,5 @@ class CreatePlan extends React.Component{
+         )
+     }
+ }
+-// CreatePlan = DragDropContext(HTML5Backend)(CreatePlan);
++ CreatePlan = DragDropContext(HTML5Backend)(CreatePlan);
+ export default CreatePlan;
+\ No newline at end of file
