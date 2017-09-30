@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // We only need to import the modules necessary for initial render
 import CoreLayout from '../layouts/default-layout'
 import Home from './home'
@@ -36,3 +37,8 @@ export const createRoutes = (store) => ({
 */
 
 export default createRoutes
+=======
+import NavigationBar from './NavigationBar/NavigationBar.jsx';
+
+export { NavigationBar };
+>>>>>>> clyde/dev

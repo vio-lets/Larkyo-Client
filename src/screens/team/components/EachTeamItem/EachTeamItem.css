@@ -1,0 +1,20 @@
+.eachTeam{
+    border-bottom:solid 1px rgb(220,220,220);
+}
+.teamName{
+    font-weight:bold;
+    float:left;
+    margin-left: 20px;
+    color:rgb(140,140,140);
+}
+.teamID{
+    float:left;
+    color:rgb(140,140,140);
+}
+.links{
+    height:30px;
+}
+.teamDescription{
+    clear:both;
+    color:rgb(180,180,180);
+}

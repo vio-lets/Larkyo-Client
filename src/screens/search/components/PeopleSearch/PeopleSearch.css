@@ -1,0 +1,24 @@
+.header-image
+{
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+}
+
+.filter-panel button
+{
+    margin: 10px 20px;
+    min-width: 100px;
+}
+.filter-panel .panel-body
+{
+    padding: 20px 20px;
+}
+.search-result label
+{
+    width: 100px;
+}
+.peopleSearchContainer{
+    margin-top: 20px;
+}
+

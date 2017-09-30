@@ -1,0 +1,16 @@
+
+.planTemplate
+{
+    list-style: none;
+}
+.planTemplate > li {
+
+}
+
+.planDestination
+{
+    list-style: none;
+}
+.planDestination > li:before{
+
+}

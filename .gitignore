@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by .ignore support plugin (hsz.mobi)
 ### VisualStudioCode template
 .vscode/*
@@ -427,3 +428,9 @@ typings/
 .env
 
 
+=======
+bundle.js
+node_modules
+.idea
+dist
+>>>>>>> clyde/dev
