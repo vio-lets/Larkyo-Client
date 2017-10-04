@@ -21,7 +21,10 @@
     "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.0",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.1.0",
     "css-loader": "^0.28.2",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^2.30.1",
     "react-scripts": "^1.0.3",
     "style-loader": "^0.18.0",
     "url-loader": "^0.5.8",
@@ -31,6 +34,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --open",
+    "start:try": "webpack-dev-server --config config/webpack.dev.js --colors --open",
     "dev": "webpack -d",
     "dashboard": "webpack-dashboard",
     "build": "webpack -p"
